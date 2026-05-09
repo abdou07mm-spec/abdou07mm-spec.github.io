@@ -1,694 +1,589 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Abderrezak Gridi — Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
-<style>
-/* ── RESET & VARS ──────────────────────────────────── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:       #030712;
-  --bg2:      #060d1f;
-  --glass:    rgba(255,255,255,.04);
-  --glass-b:  rgba(255,255,255,.08);
-  --border:   rgba(255,255,255,.07);
-  --violet:   #7c3aed;
-  --violet-l: #a78bfa;
-  --cyan:     #06b6d4;
-  --emerald:  #10b981;
-  --amber:    #f59e0b;
-  --text:     #f1f5f9;
-  --muted:    #64748b;
-  --sub:      #94a3b8;
-  --fh:       'Bricolage Grotesque',sans-serif;
-  --fb:       'Plus Jakarta Sans',sans-serif;
-  --r:        16px;
-}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);color:var(--text);
-  font-family:var(--fb);cursor:none;overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESE — Entrepreneurial & Startup Economy · DZ Young Leaders سطيف 2026</title>
+  <meta name="description" content="نادي المقاولتية واقتصاد المؤسسات الناشئة — ESE — DZ Young Leaders سطيف 2026">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green:      #1a6b3c;
+      --green-dark: #0f3d22;
+      --green-mid:  #22804a;
+      --green-xl:   #e8f5ee;
+      --gold:       #c9a227;
+      --gold-l:     #f0cc5a;
+      --gold-pale:  #fdf6e3;
+      --white:      #ffffff;
+      --bg:         #f4f9f6;
+      --text:       #152419;
+      --muted:      #5a7363;
+      --border:     #c2d9cc;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Cairo', sans-serif; background: var(--bg); color: var(--text); direction: rtl; overflow-x: hidden; }
 
-/* ── SCROLLBAR ─────────────────────────────────────── */
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:linear-gradient(var(--violet),var(--cyan));border-radius:3px}
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 999;
+      background: rgba(15,61,34,.96); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(201,162,39,.2);
+      padding: .75rem 2rem; transition: padding .3s;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .nav-logo { font-size: 1.25rem; font-weight: 900; color: var(--white); text-decoration: none; white-space: nowrap; }
+    .nav-logo span { color: var(--gold-l); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.8); text-decoration: none; font-size: .88rem; font-weight: 600; transition: color .2s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--gold-l); }
+    .nav-socials { display: flex; gap: .6rem; align-items: center; }
+    .nav-social-icon { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: .95rem; transition: all .2s; }
+    .nav-social-icon:hover { background: var(--gold); border-color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--green-dark); padding: .5rem 1.25rem; border-radius: 50px; font-weight: 800; font-size: .9rem; text-decoration: none; transition: all .2s; white-space: nowrap; }
+    .nav-cta:hover { background: var(--gold-l); transform: translateY(-1px); }
+    .nav-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; flex-shrink: 0; }
+    .nav-mobile { display: none; position: fixed; top: 56px; right: 0; left: 0; background: rgba(15,61,34,.98); padding: 1.5rem 2rem; flex-direction: column; gap: 1rem; z-index: 998; border-bottom: 1px solid rgba(201,162,39,.2); }
+    .nav-mobile a { color: rgba(255,255,255,.85); text-decoration: none; font-size: 1rem; font-weight: 700; padding: .5rem 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav-mobile.open { display: flex; }
+    @media(max-width: 900px) { .nav-links { display: none; } .nav-menu-btn { display: block; } .nav-socials { display: none; } }
 
-/* ── CURSOR ────────────────────────────────────────── */
-#cur-dot{
-  position:fixed;width:6px;height:6px;border-radius:50%;z-index:9999;
-  background:var(--cyan);box-shadow:0 0 10px var(--cyan),0 0 20px var(--cyan);
-  pointer-events:none;transform:translate(-50%,-50%);transition:background .2s;
-}
-#cur-ring{
-  position:fixed;width:32px;height:32px;border-radius:50%;z-index:9998;
-  border:1.5px solid rgba(124,58,237,.5);pointer-events:none;
-  transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s;
-}
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(150deg, #072315 0%, var(--green-dark) 35%, var(--green) 70%, #1d7a44 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 7rem 1.5rem 5rem; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z' fill-rule='evenodd'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(201,162,39,.12) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+    .hero-inner { position: relative; z-index: 1; max-width: 860px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(201,162,39,.15); border: 1px solid rgba(201,162,39,.4); border-radius: 50px; padding: .45rem 1.4rem; color: var(--gold-l); font-size: .85rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: .5px; }
+    .hero-dafaa { font-size: .82rem; color: rgba(255,255,255,.6); margin-bottom: 1.5rem; font-style: italic; }
+    .hero h1 { font-size: clamp(2.6rem, 8vw, 5rem); font-weight: 900; color: var(--white); line-height: 1.05; margin-bottom: .4rem; }
+    .hero h1 span { color: var(--gold-l); }
+    .hero-tagline { font-size: clamp(.9rem, 2vw, 1.1rem); color: var(--gold-l); font-weight: 700; letter-spacing: 1px; margin-bottom: 1rem; opacity: .9; }
+    .hero-sub { font-size: clamp(.95rem, 2.2vw, 1.15rem); color: rgba(255,255,255,.72); margin: 0 0 2rem; line-height: 1.8; }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+    .btn-hero-main { background: linear-gradient(135deg, var(--gold), var(--gold-l)); color: var(--green-dark); padding: .9rem 2.5rem; border-radius: 50px; font-weight: 900; font-size: 1.1rem; text-decoration: none; box-shadow: 0 8px 30px rgba(201,162,39,.4); transition: all .25s; }
+    .btn-hero-main:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(201,162,39,.5); }
+    .btn-hero-ghost { background: rgba(255,255,255,.1); color: var(--white); padding: .9rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; border: 1.5px solid rgba(255,255,255,.3); transition: all .25s; }
+    .btn-hero-ghost:hover { background: rgba(255,255,255,.2); }
+    .hero-stats { display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; }
+    .stat .stat-num { font-size: 2.2rem; font-weight: 900; color: var(--gold-l); line-height: 1; }
+    .stat .stat-label { font-size: .78rem; color: rgba(255,255,255,.6); font-weight: 500; margin-top: .2rem; }
+    .hero-scroll { position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.45); font-size: .78rem; display: flex; flex-direction: column; align-items: center; gap: .3rem; animation: bounce 2s infinite; }
+    .hero-scroll::after { content: '↓'; font-size: 1.1rem; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
 
-/* ── AURORA BACKGROUND ─────────────────────────────── */
-#aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.18;animation:drift 18s ease-in-out infinite}
-.orb-1{width:600px;height:600px;background:var(--violet);top:-200px;left:-100px;animation-duration:20s}
-.orb-2{width:500px;height:500px;background:var(--cyan);bottom:-150px;right:-100px;animation-duration:25s;animation-delay:-8s}
-.orb-3{width:400px;height:400px;background:var(--emerald);top:40%;left:40%;animation-duration:22s;animation-delay:-4s}
-@keyframes drift{
-  0%,100%{transform:translate(0,0) scale(1)}
-  33%{transform:translate(40px,-30px) scale(1.1)}
-  66%{transform:translate(-30px,40px) scale(.95)}
-}
-/* grid overlay */
-#aurora::after{
-  content:'';position:absolute;inset:0;
-  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
-  background-size:60px 60px;
-}
+    /* ── LEADER BANNER ── */
+    .leader-banner { background: var(--green-dark); padding: 2rem 1.5rem; text-align: center; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); }
+    .leader-banner-inner { max-width: 700px; margin: 0 auto; }
+    .leader-banner .label { display: inline-block; background: rgba(201,162,39,.15); border: 1px solid rgba(201,162,39,.3); border-radius: 50px; padding: .25rem .9rem; font-size: .78rem; font-weight: 700; color: var(--gold-l); margin-bottom: .75rem; }
+    .leader-banner h3 { font-size: clamp(1.2rem,3vw,1.7rem); font-weight: 900; color: var(--white); margin-bottom: .3rem; }
+    .leader-banner h3 span { color: var(--gold-l); }
+    .leader-banner p { font-size: .88rem; color: rgba(255,255,255,.6); }
 
-/* ── LOADER ────────────────────────────────────────── */
-#loader{
-  position:fixed;inset:0;z-index:10000;background:var(--bg);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
-  transition:opacity .9s ease,visibility .9s ease;
-}
-#loader.gone{opacity:0;visibility:hidden}
-.loader-mono{
-  font-family:var(--fh);font-size:80px;font-weight:800;letter-spacing:-.02em;
-  background:linear-gradient(135deg,var(--violet-l),var(--cyan),var(--emerald));
-  background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;animation:gradFlow 2s linear infinite;
-}
-.loader-sub{font-size:13px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
-.progress-wrap{width:180px;height:2px;background:rgba(255,255,255,.07);border-radius:1px;overflow:hidden}
-.progress-bar{height:100%;width:0;border-radius:1px;
-  background:linear-gradient(90deg,var(--violet),var(--cyan),var(--emerald));
-  background-size:200%;animation:gradFlow 1.5s linear infinite,loadProg 2s ease forwards;
-}
-@keyframes loadProg{to{width:100%}}
-@keyframes gradFlow{0%{background-position:0%}100%{background-position:200%}}
+    /* ── SHARED ── */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 3.5rem; }
+    .section-title .label { display: inline-block; background: var(--green-xl); color: var(--green); padding: .3rem 1rem; border-radius: 50px; font-size: .82rem; font-weight: 700; margin-bottom: .75rem; border: 1px solid rgba(26,107,60,.2); }
+    .section-title h2 { font-size: clamp(1.6rem,4vw,2.4rem); font-weight: 900; color: var(--green-dark); margin-bottom: .6rem; }
+    .section-title p { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 640px; margin: 0 auto; }
 
-/* ── NAV ───────────────────────────────────────────── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
-  background:rgba(3,7,18,.6);backdrop-filter:blur(24px) saturate(160%);
-  -webkit-backdrop-filter:blur(24px) saturate(160%);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-  height:60px;padding:0 6%;
-  transform:translateY(-100%);animation:navIn .5s .6s ease forwards;
-}
-@keyframes navIn{to{transform:translateY(0)}}
-.nav-logo{
-  font-family:var(--fh);font-weight:800;font-size:16px;text-decoration:none;
-  background:linear-gradient(90deg,var(--violet-l),var(--cyan));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.nav-links{list-style:none;display:flex;gap:28px}
-.nav-links a{
-  color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;
-  transition:color .25s;position:relative;
-}
-.nav-links a::after{
-  content:'';position:absolute;bottom:-3px;left:0;right:0;
-  height:1px;background:linear-gradient(90deg,var(--violet),var(--cyan));
-  transform:scaleX(0);transform-origin:left;transition:transform .25s;
-}
-.nav-links a:hover{color:var(--text)}
-.nav-links a:hover::after{transform:scaleX(1)}
+    /* ── ABOUT ── */
+    .about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-text h2 { font-size: clamp(1.5rem,3vw,2.1rem); font-weight: 900; color: var(--green-dark); margin-bottom: 1rem; line-height: 1.3; }
+    .about-text p { color: var(--muted); line-height: 1.85; font-size: .97rem; margin-bottom: .85rem; }
+    .about-text .quote { background: var(--green-xl); border-right: 4px solid var(--green); border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; font-size: 1rem; font-weight: 700; color: var(--green-dark); font-style: italic; margin: 1.25rem 0; }
+    .about-visual { background: linear-gradient(135deg, var(--green-dark), var(--green)); border-radius: 24px; padding: 2.5rem; color: white; text-align: center; box-shadow: 0 20px 60px rgba(15,61,34,.25); }
+    .about-visual .big-text { font-size: 3.5rem; font-weight: 900; color: var(--gold-l); line-height: 1; }
+    .about-visual .sub-text { font-size: .9rem; opacity: .75; margin-top: .4rem; }
+    .about-visual .divider { height: 1px; background: rgba(255,255,255,.15); margin: 1.5rem 0; }
+    .about-visual .row { display: flex; justify-content: space-around; }
+    .about-visual .mini-stat .n { font-size: 1.8rem; font-weight: 900; color: var(--gold-l); }
+    .about-visual .mini-stat .l { font-size: .72rem; opacity: .7; }
+    .about-visual .tagline { font-size: .95rem; font-weight: 800; color: var(--gold-l); margin-top: 1.5rem; }
+    @media(max-width:768px) { .about-grid { grid-template-columns: 1fr; } }
 
-/* ── LAYOUT ────────────────────────────────────────── */
-section{padding:96px 6%;position:relative;z-index:2}
-.sec-tag{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--cyan);margin-bottom:10px;
-}
-.sec-tag::before{content:'';width:20px;height:1px;background:var(--cyan)}
-.sec-title{
-  font-family:var(--fh);font-size:clamp(26px,3.5vw,40px);font-weight:800;
-  line-height:1.1;margin-bottom:52px;letter-spacing:-.02em;
-}
+    /* ── VISION & MISSION ── */
+    .vision { background: var(--bg); }
+    .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .vm-card { background: var(--white); border-radius: 18px; padding: 2.5rem; border: 1.5px solid var(--border); transition: all .25s; }
+    .vm-card:hover { border-color: var(--green); box-shadow: 0 10px 30px rgba(26,107,60,.1); }
+    .vm-card .vm-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .vm-card h3 { font-size: 1.25rem; font-weight: 900; color: var(--green-dark); margin-bottom: 1rem; }
+    .vm-card p { color: var(--muted); line-height: 1.8; font-size: .95rem; }
+    .vm-card ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; margin-top: .75rem; }
+    .vm-card ul li { font-size: .9rem; color: var(--text); padding-right: 1.3rem; position: relative; line-height: 1.5; }
+    .vm-card ul li::before { content: '✦'; position: absolute; right: 0; color: var(--gold); font-size: .7rem; top: .3rem; }
+    @media(max-width:640px) { .vm-grid { grid-template-columns: 1fr; } }
 
-/* ── GLASS CARD ────────────────────────────────────── */
-.glass{
-  background:var(--glass);
-  border:1px solid var(--border);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border-radius:var(--r);
-}
-.glass:hover{background:var(--glass-b);border-color:rgba(124,58,237,.25)}
+    /* ── GOALS ── */
+    .goals { background: var(--white); }
+    .goals-main { background: linear-gradient(135deg, var(--green-dark), var(--green)); border-radius: 20px; padding: 2.5rem; color: white; text-align: center; margin-bottom: 2rem; }
+    .goals-main h3 { font-size: 1.1rem; font-weight: 700; opacity: .8; margin-bottom: .5rem; }
+    .goals-main .big-goal { font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 900; color: var(--gold-l); line-height: 1.1; }
+    .goals-main p { font-size: .9rem; opacity: .75; margin-top: .75rem; }
+    .goals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .goal-item { background: var(--bg); border-radius: 14px; padding: 1.5rem; border: 1.5px solid var(--border); transition: all .2s; }
+    .goal-item:hover { border-color: var(--green); background: var(--green-xl); }
+    .goal-item .g-icon { font-size: 1.8rem; margin-bottom: .75rem; }
+    .goal-item p { font-size: .88rem; color: var(--text); line-height: 1.6; font-weight: 500; }
+    @media(max-width:768px) { .goals-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:480px) { .goals-grid { grid-template-columns: 1fr; } }
 
-/* ── HERO ──────────────────────────────────────────── */
-#hero{
-  min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;
-  align-items:center;gap:48px;padding-top:110px;
-}
-.badge{
-  display:inline-flex;align-items:center;gap:7px;
-  padding:5px 14px;border-radius:100px;font-size:12px;font-weight:500;
-  background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);
-  color:var(--emerald);margin-bottom:20px;
-}
-.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--emerald);
-  box-shadow:0 0 6px var(--emerald);animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.hero-name{
-  font-family:var(--fh);font-size:clamp(44px,6vw,78px);
-  font-weight:800;line-height:1;letter-spacing:-.04em;margin-bottom:14px;
-  background:linear-gradient(135deg,#fff 0%,var(--violet-l) 40%,var(--cyan) 70%,var(--emerald) 100%);
-  background-size:250%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;animation:shimmer 5s linear infinite;
-}
-@keyframes shimmer{0%{background-position:0%}100%{background-position:250%}}
-.hero-role{font-size:clamp(15px,2vw,18px);color:var(--sub);font-weight:300;
-  line-height:1.65;margin-bottom:36px;}
-.hero-role strong{color:var(--text);font-weight:600}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-.btn{
-  padding:11px 26px;border-radius:10px;font-family:var(--fb);font-size:14px;
-  font-weight:600;cursor:none;text-decoration:none;border:none;transition:all .3s;
-}
-.btn-v{
-  background:linear-gradient(135deg,var(--violet),#9333ea);color:#fff;
-  box-shadow:0 0 0 rgba(124,58,237,0);
-}
-.btn-v:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(124,58,237,.4)}
-.btn-g{
-  background:transparent;color:var(--sub);
-  border:1px solid var(--border);
-}
-.btn-g:hover{border-color:rgba(124,58,237,.4);color:var(--text);transform:translateY(-2px)}
+    /* ── ACTIVITIES ── */
+    .activities { background: var(--bg); }
+    .act-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .act-card { background: var(--white); border-radius: 18px; padding: 2rem; border: 1.5px solid var(--border); transition: all .25s; }
+    .act-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(15,61,34,.1); border-color: var(--green); }
+    .act-num { font-size: 2.5rem; font-weight: 900; color: var(--green-xl); line-height: 1; margin-bottom: .5rem; }
+    .act-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--green-dark); margin-bottom: .6rem; }
+    .act-card p { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: .75rem; }
+    .act-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .act-tag { background: var(--green-xl); color: var(--green); padding: .2rem .7rem; border-radius: 50px; font-size: .75rem; font-weight: 700; }
+    @media(max-width:640px) { .act-grid { grid-template-columns: 1fr; } }
 
-/* hero card */
-.hero-card-area{display:flex;align-items:center;justify-content:center;position:relative}
-.halo{
-  position:absolute;width:320px;height:320px;border-radius:50%;
-  background:radial-gradient(circle,rgba(124,58,237,.25) 0%,transparent 70%);
-  filter:blur(48px);animation:haloPulse 5s ease-in-out infinite;
-}
-@keyframes haloPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-.spin-ring{
-  position:absolute;width:300px;height:300px;border-radius:50%;
-  border:1px dashed rgba(124,58,237,.25);
-  animation:spin 14s linear infinite;
-}
-.spin-ring-2{
-  position:absolute;width:240px;height:240px;border-radius:50%;
-  border:1px dashed rgba(6,182,212,.2);
-  animation:spin 9s linear infinite reverse;
-}
-@keyframes spin{to{transform:rotate(360deg)}}
-.hero-card{
-  width:280px;padding:32px 28px;
-  animation:float 7s ease-in-out infinite;position:relative;z-index:1;
-}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-.hc-avatar{
-  width:64px;height:64px;border-radius:50%;margin:0 auto 16px;
-  background:linear-gradient(135deg,var(--violet),var(--cyan));
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--fh);font-size:22px;font-weight:800;color:#fff;
-  box-shadow:0 0 24px rgba(124,58,237,.5);
-}
-.hc-name{font-family:var(--fh);font-size:16px;font-weight:700;text-align:center;margin-bottom:3px}
-.hc-sub{font-size:12px;color:var(--muted);text-align:center;margin-bottom:20px}
-.hc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
-.hc-stat{
-  padding:10px 6px;border-radius:10px;text-align:center;
-  background:rgba(255,255,255,.04);border:1px solid var(--border);
-}
-.hc-stat-n{
-  font-family:var(--fh);font-size:18px;font-weight:800;
-  background:linear-gradient(135deg,var(--violet-l),var(--cyan));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.hc-stat-l{font-size:9px;color:var(--muted);margin-top:2px}
-.hc-pill{
-  display:flex;align-items:center;justify-content:center;gap:6px;
-  padding:7px;border-radius:8px;font-size:11px;font-weight:500;color:var(--emerald);
-  background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);
-}
+    /* ── COMMITTEES ── */
+    .committees { background: var(--white); }
+    .comm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .comm-card { border-radius: 16px; padding: 1.75rem; border: 1.5px solid var(--border); transition: all .25s; background: var(--white); }
+    .comm-card:hover { border-color: var(--green); box-shadow: 0 8px 28px rgba(26,107,60,.1); transform: translateY(-4px); }
+    .comm-icon { font-size: 2rem; margin-bottom: .75rem; }
+    .comm-card h3 { font-size: .95rem; font-weight: 800; color: var(--green-dark); margin-bottom: .5rem; line-height: 1.3; }
+    .comm-card p { font-size: .83rem; color: var(--muted); line-height: 1.65; }
+    @media(max-width:900px) { .comm-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:540px) { .comm-grid { grid-template-columns: 1fr; } }
 
-/* ── MARQUEE ───────────────────────────────────────── */
-.mq-wrap{
-  overflow:hidden;padding:20px 0;position:relative;z-index:2;
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-}
-.mq-track{display:flex;gap:40px;width:max-content;animation:mq 22s linear infinite}
-.mq-item{
-  white-space:nowrap;font-size:11px;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px;
-}
-.mq-item::after{content:'◆';color:var(--violet);font-size:7px}
-@keyframes mq{to{transform:translateX(-50%)}}
+    /* ── VALUES ── */
+    .values { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%); }
+    .values .section-title .label { background: rgba(255,255,255,.1); color: var(--gold-l); border-color: rgba(255,255,255,.2); }
+    .values .section-title h2 { color: white; }
+    .values .section-title p { color: rgba(255,255,255,.7); }
+    .values-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .value-chip { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 14px; padding: 1.25rem 1.75rem; text-align: center; min-width: 150px; transition: all .2s; }
+    .value-chip:hover { background: rgba(201,162,39,.2); border-color: var(--gold); transform: translateY(-3px); }
+    .value-chip .v-icon { font-size: 1.8rem; margin-bottom: .4rem; }
+    .value-chip span { font-size: .92rem; font-weight: 700; color: white; display: block; }
 
-/* ── SKILLS ────────────────────────────────────────── */
-#skills{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%)}
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 52px;margin-bottom:44px}
-.skill-row{}
-.skill-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
-.skill-lbl{font-size:13px;font-weight:500;color:var(--sub)}
-.skill-num{font-size:12px;font-family:var(--fh);font-weight:700;color:var(--violet-l)}
-.skill-track{height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
-.skill-bar{
-  height:100%;width:0;border-radius:3px;
-  transition:width 1.3s cubic-bezier(.4,0,.2,1);
-  position:relative;overflow:hidden;
-}
-.skill-bar.lit::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
-  animation:barShine 1.4s ease;
-}
-@keyframes barShine{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+    /* ── CTA ── */
+    .cta-section { background: var(--bg); padding: 5rem 1.5rem; text-align: center; }
+    .cta-box { max-width: 750px; margin: 0 auto; background: linear-gradient(135deg, var(--green-dark), var(--green)); border-radius: 24px; padding: 4rem 2rem; box-shadow: 0 20px 60px rgba(15,61,34,.25); position: relative; overflow: hidden; }
+    .cta-box::before { content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(201,162,39,.12) 0%, transparent 70%); pointer-events: none; }
+    .cta-box h2 { font-size: clamp(1.6rem,4vw,2.4rem); font-weight: 900; color: white; margin-bottom: 1rem; position: relative; }
+    .cta-box p { color: rgba(255,255,255,.72); font-size: 1rem; line-height: 1.75; margin-bottom: 2rem; position: relative; }
+    .cta-slogan { font-size: 1.1rem; font-weight: 800; color: var(--gold-l); margin-bottom: 2rem; position: relative; }
+    .btn-cta { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-l)); color: var(--green-dark); padding: 1rem 3.5rem; border-radius: 50px; font-weight: 900; font-size: 1.15rem; text-decoration: none; box-shadow: 0 8px 30px rgba(201,162,39,.4); transition: all .25s; position: relative; }
+    .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(201,162,39,.5); }
 
-.chip-cloud{display:flex;flex-wrap:wrap;gap:8px}
-.chip{
-  padding:6px 14px;border-radius:100px;font-size:12px;font-weight:500;
-  background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--muted);
-  transition:all .28s;cursor:default;
-}
-.chip:hover{
-  background:rgba(124,58,237,.14);border-color:rgba(124,58,237,.35);
-  color:var(--violet-l);transform:translateY(-4px);
-  box-shadow:0 6px 18px rgba(124,58,237,.2);
-}
+    /* ── CONTACT ── */
+    .contact { background: var(--white); padding: 4rem 1.5rem; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+    .contact-card { background: var(--bg); border-radius: 16px; padding: 2rem; text-align: center; border: 1.5px solid var(--border); transition: all .25s; text-decoration: none; }
+    .contact-card:hover { border-color: var(--green); transform: translateY(-4px); box-shadow: 0 10px 28px rgba(26,107,60,.1); }
+    .contact-card .c-icon { font-size: 2.2rem; margin-bottom: .75rem; }
+    .contact-card h4 { font-size: .9rem; font-weight: 800; color: var(--green-dark); margin-bottom: .3rem; }
+    .contact-card span { font-size: .82rem; color: var(--muted); }
+    @media(max-width:640px) { .contact-grid { grid-template-columns: 1fr; } }
 
-/* ── EXPERIENCE ────────────────────────────────────── */
-.tl{position:relative;padding-left:28px;display:flex;flex-direction:column;gap:0}
-.tl::before{
-  content:'';position:absolute;left:0;top:8px;bottom:8px;width:1.5px;
-  background:linear-gradient(180deg,var(--violet),var(--cyan),var(--emerald));
-  border-radius:1px;
-}
-.tl-item{position:relative;padding-bottom:32px}
-.tl-dot{
-  position:absolute;left:-35px;top:6px;width:12px;height:12px;
-  border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--cyan));
-  border:2px solid var(--bg);box-shadow:0 0 10px rgba(124,58,237,.6);
-}
-.job-card{
-  padding:22px;transition:transform .3s,border-color .3s,box-shadow .3s;
-  opacity:0;transform:translateX(-24px);
-}
-.job-card.vis{opacity:1;transform:translateX(0)}
-.job-card:hover{transform:translateX(6px)!important;border-color:rgba(124,58,237,.28);
-  box-shadow:0 6px 28px rgba(124,58,237,.12)}
-.jt{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:6px}
-.jt-title{font-family:var(--fh);font-size:15px;font-weight:700}
-.jt-badge{
-  font-size:10px;padding:3px 10px;border-radius:100px;font-weight:700;
-  background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);color:var(--violet-l);
-}
-.jt-meta{font-size:12px;color:var(--muted);margin-bottom:10px}
-.jt-meta em{color:var(--cyan);font-style:normal}
-.jt-desc{font-size:13px;color:var(--sub);line-height:1.7;margin-bottom:14px}
-.jt-chips{display:flex;flex-wrap:wrap;gap:6px}
-.jt-chip{
-  font-size:10px;padding:2px 9px;border-radius:100px;
-  background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);
-}
+    /* ── FOOTER ── */
+    footer { background: var(--green-dark); color: rgba(255,255,255,.6); padding: 2.5rem 1.5rem; }
+    .footer-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+    .footer-brand { font-size: 1.3rem; font-weight: 900; color: var(--gold-l); margin-bottom: .4rem; }
+    .footer-sub { font-size: .82rem; line-height: 1.7; }
+    .footer-socials { display: flex; gap: .75rem; }
+    .footer-social { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 1.1rem; transition: all .2s; }
+    .footer-social:hover { background: var(--gold); border-color: var(--gold); }
+    .footer-bottom { max-width: 900px; margin: 1.5rem auto 0; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.1); text-align: center; font-size: .8rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
+    .footer-bottom a { color: rgba(255,255,255,.5); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--gold-l); }
+    @media(max-width:540px) { .footer-inner { grid-template-columns: 1fr; text-align: center; } .footer-socials { justify-content: center; } .footer-bottom { justify-content: center; } }
 
-/* ── PROJECTS ──────────────────────────────────────── */
-#projects{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
-.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.proj-card{
-  padding:26px;position:relative;overflow:hidden;
-  transition:transform .35s,border-color .35s,box-shadow .35s;
-  opacity:0;transform:translateY(28px);
-}
-.proj-card.vis{opacity:1;transform:translateY(0)}
-.proj-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--violet),var(--cyan),var(--emerald));
-  transform:scaleX(0);transform-origin:left;transition:transform .4s;
-}
-.proj-card:hover{transform:translateY(-7px)!important;
-  border-color:rgba(124,58,237,.28);box-shadow:0 16px 40px rgba(0,0,0,.35)}
-.proj-card:hover::before{transform:scaleX(1)}
-.proj-emoji{font-size:30px;margin-bottom:14px;display:block}
-.proj-name{font-family:var(--fh);font-size:15px;font-weight:700;margin-bottom:8px}
-.proj-desc{font-size:12.5px;color:var(--muted);line-height:1.65;margin-bottom:14px}
-.proj-tags{display:flex;flex-wrap:wrap;gap:5px}
-.proj-tag{
-  font-size:10px;padding:2px 9px;border-radius:100px;
-  background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);color:var(--cyan);
-}
-
-/* ── EDUCATION ─────────────────────────────────────── */
-.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:44px}
-.edu-card{
-  padding:24px;transition:all .3s;
-  opacity:0;transform:translateY(18px);
-}
-.edu-card.vis{opacity:1;transform:translateY(0)}
-.edu-card:hover{transform:translateY(-4px)!important;border-color:rgba(124,58,237,.28)}
-.edu-ico{font-size:26px;margin-bottom:12px}
-.edu-deg{font-family:var(--fh);font-size:14px;font-weight:700;margin-bottom:5px}
-.edu-sch{font-size:12px;color:var(--cyan);margin-bottom:3px}
-.edu-dt{font-size:11px;color:var(--muted)}
-
-/* lang */
-.lang-strip{display:flex;flex-wrap:wrap;gap:14px}
-.lang-card{
-  padding:16px 20px;border-radius:14px;
-  background:var(--glass);border:1px solid var(--border);
-  display:flex;align-items:center;gap:14px;
-  opacity:0;transform:translateY(14px);transition:all .4s;
-}
-.lang-card.vis{opacity:1;transform:translateY(0)}
-.lang-flag{font-size:22px}
-.lang-n{font-family:var(--fh);font-size:13px;font-weight:700;margin-bottom:2px}
-.lang-l{font-size:11px;color:var(--muted);margin-bottom:6px}
-.lang-pips{display:flex;gap:3px}
-.pip{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.1)}
-.pip.on{background:linear-gradient(135deg,var(--violet),var(--cyan))}
-
-/* ── CONTACT ───────────────────────────────────────── */
-#contact{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%)}
-.contact-layout{display:grid;grid-template-columns:1fr auto;gap:52px;align-items:center}
-.contact-stack{display:flex;flex-direction:column;gap:14px}
-.cc{
-  display:flex;align-items:center;gap:14px;padding:16px 20px;
-  transition:all .3s;opacity:0;transform:translateX(-18px);
-}
-.cc.vis{opacity:1;transform:translateX(0)}
-.cc:hover{transform:translateX(6px)!important;border-color:rgba(124,58,237,.28)}
-.cc-icon{
-  width:38px;height:38px;border-radius:10px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;font-size:17px;
-}
-.cc-lbl{font-size:11px;color:var(--muted);margin-bottom:2px}
-.cc-val{font-size:13px;font-weight:500}
-
-.ripple-area{
-  position:relative;width:180px;height:180px;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.ripple{
-  position:absolute;border-radius:50%;border:1px solid;
-  animation:rippleOut 3s ease-in-out infinite;
-}
-.ripple:nth-child(1){width:100px;height:100px;border-color:rgba(124,58,237,.5)}
-.ripple:nth-child(2){width:136px;height:136px;border-color:rgba(124,58,237,.25);animation-delay:.6s}
-.ripple:nth-child(3){width:172px;height:172px;border-color:rgba(124,58,237,.1);animation-delay:1.2s}
-@keyframes rippleOut{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.05);opacity:.4}}
-.ripple-avatar{
-  width:76px;height:76px;border-radius:50%;z-index:1;
-  background:linear-gradient(135deg,var(--violet),var(--cyan));
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--fh);font-size:24px;font-weight:800;color:#fff;
-  box-shadow:0 0 32px rgba(124,58,237,.5);
-}
-
-/* ── FOOTER ────────────────────────────────────────── */
-footer{
-  text-align:center;padding:28px;border-top:1px solid var(--border);
-  font-size:12px;color:var(--muted);z-index:2;position:relative;
-}
-
-/* ── SCROLL REVEAL ─────────────────────────────────── */
-.rev{opacity:0;transform:translateY(36px);transition:opacity .65s ease,transform .65s ease}
-.rev.vis{opacity:1;transform:translateY(0)}
-.rev-l{opacity:0;transform:translateX(-36px);transition:opacity .65s ease,transform .65s ease}
-.rev-l.vis{opacity:1;transform:translateX(0)}
-.rev-r{opacity:0;transform:translateX(36px);transition:opacity .65s ease,transform .65s ease}
-.rev-r.vis{opacity:1;transform:translateX(0)}
-
-/* ── RESPONSIVE ────────────────────────────────────── */
-@media(max-width:960px){
-  #hero{grid-template-columns:1fr;text-align:center}
-  .hero-cta{justify-content:center}
-  .hero-card-area{margin-top:32px}
-  .skills-grid,.edu-grid,.proj-grid{grid-template-columns:1fr}
-  .contact-layout{grid-template-columns:1fr}
-  .ripple-area{margin:0 auto}
-  .nav-links{display:none}
-}
-@media(max-width:560px){section{padding:72px 5%}.hero-name{font-size:38px}}
-</style>
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
 <body>
 
-<div id="cur-dot"></div>
-<div id="cur-ring"></div>
-
-<!-- AURORA -->
-<div id="aurora">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-</div>
-
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-mono">AG</div>
-  <div class="loader-sub">Loading portfolio…</div>
-  <div class="progress-wrap"><div class="progress-bar"></div></div>
-</div>
-
-<!-- NAV -->
-<nav>
-  <a href="#hero" class="nav-logo">Abderrezak Gridi</a>
+<!-- ═══ NAV ═══ -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">ESE <span>DZ</span></a>
   <ul class="nav-links">
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">من نحن</a></li>
+    <li><a href="#vision">رؤيتنا</a></li>
+    <li><a href="#activities">أنشطتنا</a></li>
+    <li><a href="#committees">اللجان</a></li>
+    <li><a href="#contact">تواصل</a></li>
   </ul>
+  <div class="nav-socials">
+    <a href="https://www.facebook.com/profile.php?id=61589169546650" target="_blank" class="nav-social-icon" title="Facebook">f</a>
+    <a href="https://www.instagram.com/dz.nexora?igsh=MTQ0a21keXFwcGU3bw==" target="_blank" class="nav-social-icon" title="Instagram">📷</a>
+    <a href="https://wa.me/213662958332" target="_blank" class="nav-social-icon" title="WhatsApp">💬</a>
+  </div>
+  <a href="register.html" class="nav-cta">سجّل الآن ←</a>
+  <button class="nav-menu-btn" onclick="toggleMenu()" aria-label="قائمة">☰</button>
 </nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#about" onclick="closeMenu()">من نحن</a>
+  <a href="#vision" onclick="closeMenu()">رؤيتنا</a>
+  <a href="#activities" onclick="closeMenu()">أنشطتنا</a>
+  <a href="#committees" onclick="closeMenu()">اللجان</a>
+  <a href="#contact" onclick="closeMenu()">تواصل معنا</a>
+  <a href="register.html" style="color:var(--gold-l) !important;font-size:1.05rem">← سجّل الآن</a>
+</div>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="rev-l">
-    <div class="badge"><span class="badge-dot"></span>Open to opportunities</div>
-    <h1 class="hero-name">Abderrezak<br/>Gridi</h1>
-    <p class="hero-role">
-      <strong>Micro-Electronics Engineer</strong> — IoT &amp; Embedded Systems<br/>
-      Startup Founder · Robotics Developer · n8n Automation
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">🇩🇿 DZ Young Leaders — سطيف 2026</div>
+    <p class="hero-dafaa">دفعة المجاهد الرئيس الراحل اليمين زروال</p>
+    <h1>نادي <span>ESE</span></h1>
+    <p class="hero-tagline">Entrepreneurial &amp; Startup Economy</p>
+    <p class="hero-sub">
+      نادي المقاولتية واقتصاد المؤسسات الناشئة<br>
+      نحو شباب لا ينتظر… بل يصنع
     </p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-v">View Projects</a>
-      <a href="#contact" class="btn btn-g">Contact Me</a>
+    <div class="hero-btns">
+      <a href="register.html" class="btn-hero-main">سجّل الآن 🚀</a>
+      <a href="#about" class="btn-hero-ghost">اكتشف النادي</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">1000</div><div class="stat-label">شاب مستهدف</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">لجان متخصصة</div></div>
+      <div class="stat"><div class="stat-num">18-35</div><div class="stat-label">الفئة العمرية</div></div>
+      <div class="stat"><div class="stat-num">سطيف</div><div class="stat-label">ولاية الانطلاق</div></div>
     </div>
   </div>
-  <div class="hero-card-area rev-r">
-    <div class="halo"></div>
-    <div class="spin-ring"></div>
-    <div class="spin-ring-2"></div>
-    <div class="hero-card glass">
-      <div class="hc-avatar">AG</div>
-      <div class="hc-name">Abderrezak Gridi</div>
-      <div class="hc-sub">M1 Micro-Electronics · Sétif, Algeria</div>
-      <div class="hc-stats">
-        <div class="hc-stat"><div class="hc-stat-n">5+</div><div class="hc-stat-l">Years</div></div>
-        <div class="hc-stat"><div class="hc-stat-n">10+</div><div class="hc-stat-l">Projects</div></div>
-        <div class="hc-stat"><div class="hc-stat-n">3</div><div class="hc-stat-l">Languages</div></div>
-      </div>
-      <div class="hc-pill">🚀 Startup · Patent Pending</div>
-    </div>
-  </div>
+  <div class="hero-scroll">اسحب</div>
 </section>
 
-<!-- MARQUEE -->
-<div class="mq-wrap" style="z-index:2;position:relative">
-  <div class="mq-track">
-    <span class="mq-item">Samsung · Sinova</span><span class="mq-item">Jeeun</span>
-    <span class="mq-item">ANVREDET</span><span class="mq-item">Université Sétif 1</span>
-    <span class="mq-item">Club Scientifique CEE</span><span class="mq-item">Congrès Maghrébin 2025</span>
-    <span class="mq-item">Hanami TEC 2</span><span class="mq-item">Electro Future Challenge</span>
-    <span class="mq-item">Samsung · Sinova</span><span class="mq-item">Jeeun</span>
-    <span class="mq-item">ANVREDET</span><span class="mq-item">Université Sétif 1</span>
-    <span class="mq-item">Club Scientifique CEE</span><span class="mq-item">Congrès Maghrébin 2025</span>
-    <span class="mq-item">Hanami TEC 2</span><span class="mq-item">Electro Future Challenge</span>
+<!-- ═══ LEADER BANNER ═══ -->
+<div class="leader-banner">
+  <div class="leader-banner-inner">
+    <span class="label">👑 قائد النادي</span>
+    <h3>أشرف موساوي <span>بهاء الدين</span></h3>
+    <p>DZ Young Leaders – سطيف 2026 · ESE Entrepreneurial &amp; Startup Economy</p>
   </div>
 </div>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="sec-tag">Technical Skills</div>
-  <h2 class="sec-title rev">Skills &amp; Technologies</h2>
-  <div class="skills-grid" id="skillsGrid"></div>
-  <div class="chip-cloud rev" id="chipCloud"></div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="sec-tag">Journey</div>
-  <h2 class="sec-title rev">Experience &amp; Leadership</h2>
-  <div class="tl" id="tl"></div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="sec-tag">Portfolio</div>
-  <h2 class="sec-title rev">Projects</h2>
-  <div class="proj-grid" id="projGrid"></div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="sec-tag">Academic</div>
-  <h2 class="sec-title rev">Education &amp; Languages</h2>
-  <div class="edu-grid" id="eduGrid"></div>
-  <div class="sec-tag rev" style="margin-top:12px">Languages</div>
-  <div class="lang-strip" id="langStrip" style="margin-top:14px"></div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="sec-tag">Get In Touch</div>
-  <h2 class="sec-title rev">Contact</h2>
-  <div class="contact-layout">
-    <div class="contact-stack" id="contactStack"></div>
-    <div class="ripple-area rev-r">
-      <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
-      <div class="ripple-avatar">AG</div>
+<!-- ═══ ABOUT ═══ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <h2>من نحن؟</h2>
+        <p>
+          نحن مجموعة شبابية طموحة من ولاية سطيف، منبثقة عن برنامج وزارة الشباب
+          <strong>«تأهيل القيادات الشبابية 2026»</strong>
+          دفعة المجاهد الرئيس الراحل اليمين زروال.
+        </p>
+        <p>
+          يجمعنا هدف واحد: تغيير نظرة الشباب نحو ريادة الأعمال والمقاولتية، والعمل على بناء جيل مبادر قادر على تحويل أفكاره إلى مشاريع ومبادرات ذات أثر حقيقي.
+        </p>
+        <p>
+          نؤمن أن التعليم لا يجب أن يكون مجرد طريق نحو وظيفة، بل وسيلة لبناء مشروع مستقبلي يخلق القيمة والفرص.
+        </p>
+        <div class="quote">
+          «نحو شباب لا ينتظر… بل يصنع»
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="big-text">2026</div>
+        <div class="sub-text">DZ Young Leaders · سطيف</div>
+        <div class="divider"></div>
+        <div class="row">
+          <div class="mini-stat"><div class="n">1000</div><div class="l">شاب مستهدف</div></div>
+          <div class="mini-stat"><div class="n">6</div><div class="l">لجان</div></div>
+          <div class="mini-stat"><div class="n">4</div><div class="l">أنشطة</div></div>
+        </div>
+        <div class="divider"></div>
+        <div class="tagline">From Idea To Impact 🚀</div>
+        <div style="margin-top:1rem;font-size:.82rem;opacity:.7;line-height:1.6">
+          Entrepreneurial &amp; Startup Economy<br>
+          نادي المقاولتية واقتصاد المؤسسات الناشئة
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>Built by <strong>Abderrezak Gridi</strong> · El-Eulma, Sétif, Algeria · 2025</footer>
+<!-- ═══ VISION & MISSION ═══ -->
+<section class="vision" id="vision">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="label">الرؤية والرسالة</span>
+      <h2>ما الذي نسعى إليه؟</h2>
+    </div>
+    <div class="vm-grid reveal">
+      <div class="vm-card">
+        <div class="vm-icon">🔭</div>
+        <h3>رؤيتنا</h3>
+        <p>بناء جيل من الشباب لا ينتظر الفرص… بل يصنعها.</p>
+        <p>نسعى إلى ترسيخ ثقافة المبادرة والابتكار، وربط التخصصات الدراسية بالمشاريع المستقبلية بدل عقلية البحث عن الوظيفة فقط.</p>
+      </div>
+      <div class="vm-card">
+        <div class="vm-icon">🎯</div>
+        <h3>رسالتنا</h3>
+        <p>مرافقة الشباب والتلاميذ والطلبة في تطوير طريقة تفكيرهم تجاه العمل، من خلال:</p>
+        <ul>
+          <li>نشر ثقافة ريادة الأعمال</li>
+          <li>تقديم ورشات ودورات تكوينية</li>
+          <li>تنظيم لقاءات وبودكاستات شبابية</li>
+          <li>تأطير التلاميذ في اختيار تخصصاتهم الجامعية</li>
+          <li>خلق بيئة شبابية محفزة على الابتكار</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GOALS ═══ -->
+<section class="goals" id="goals">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="label">أهدافنا</span>
+      <h2>ماذا نريد أن نحقق؟</h2>
+    </div>
+    <div class="goals-main reveal">
+      <h3>الهدف الرئيسي</h3>
+      <div class="big-goal">تكوين وتأطير 1000 شاب وشابة<br>بعقلية المقاول والمبادر</div>
+    </div>
+    <div class="goals-grid">
+      <div class="goal-item reveal">
+        <div class="g-icon">📢</div>
+        <p>نشر ثقافة ريادة الأعمال وسط الشباب</p>
+      </div>
+      <div class="goal-item reveal">
+        <div class="g-icon">🔄</div>
+        <p>تغيير عقلية «البحث عن وظيفة» إلى «صناعة الفرص»</p>
+      </div>
+      <div class="goal-item reveal">
+        <div class="g-icon">🛠️</div>
+        <p>تنظيم ورشات ولقاءات تكوينية دورية</p>
+      </div>
+      <div class="goal-item reveal">
+        <div class="g-icon">🚌</div>
+        <p>إنشاء مدرسة متنقلة للوصول لمختلف المؤسسات التعليمية</p>
+      </div>
+      <div class="goal-item reveal">
+        <div class="g-icon">💡</div>
+        <p>مرافقة الشباب في بناء أفكارهم ومشاريعهم المستقبلية</p>
+      </div>
+      <div class="goal-item reveal">
+        <div class="g-icon">🌐</div>
+        <p>خلق شبكة شبابية من القادة والمبادرين</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ACTIVITIES ═══ -->
+<section class="activities" id="activities">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="label">برنامجنا الميداني</span>
+      <h2>أنشطتنا ومبادراتنا</h2>
+      <p>أربع ركائز ميدانية تُجسّد رؤيتنا على أرض الواقع</p>
+    </div>
+    <div class="act-grid">
+      <div class="act-card reveal">
+        <div class="act-num">01</div>
+        <h3>الورشات التكوينية</h3>
+        <p>ورشات تفاعلية وتطبيقية تهدف إلى تغيير طريقة التفكير وبناء مهارات ريادة الأعمال.</p>
+        <div class="act-tags">
+          <span class="act-tag">ريادة الأعمال</span>
+          <span class="act-tag">تطوير الأفكار</span>
+          <span class="act-tag">القيادة</span>
+          <span class="act-tag">عقلية المقاول</span>
+        </div>
+      </div>
+      <div class="act-card reveal">
+        <div class="act-num">02</div>
+        <h3>البودكاست الشبابي</h3>
+        <p>مساحة حوارية شبابية تستضيف مختلف التجارب والأفكار الملهمة في مجال ريادة الأعمال والابتكار.</p>
+        <div class="act-tags">
+          <span class="act-tag">حوارات</span>
+          <span class="act-tag">تجارب ناجحة</span>
+          <span class="act-tag">إلهام شبابي</span>
+        </div>
+      </div>
+      <div class="act-card reveal">
+        <div class="act-num">03</div>
+        <h3>المدرسة المتنقلة — École Mobile</h3>
+        <p>مبادرة ميدانية تنتقل بين المتوسطات، الثانويات، الجامعات والمعاهد لنشر ثقافة ريادة الأعمال.</p>
+        <div class="act-tags">
+          <span class="act-tag">متوسطات</span>
+          <span class="act-tag">ثانويات</span>
+          <span class="act-tag">جامعات</span>
+          <span class="act-tag">معاهد</span>
+        </div>
+      </div>
+      <div class="act-card reveal">
+        <div class="act-num">04</div>
+        <h3>برنامج التوجيه الجامعي</h3>
+        <p>برنامج خاص بتلاميذ البكالوريا لمساعدتهم على اختيار تخصصاتهم الجامعية وفق مشاريعهم وطموحاتهم.</p>
+        <div class="act-tags">
+          <span class="act-tag">بكالوريا</span>
+          <span class="act-tag">اختيار التخصص</span>
+          <span class="act-tag">مشاريع المستقبل</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COMMITTEES ═══ -->
+<section class="committees" id="committees">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="label">الهيكلة التنظيمية</span>
+      <h2>اللجان الستة للنادي</h2>
+      <p>ست لجان متخصصة تعمل بشكل متكامل لضمان نجاح كل نشاط في ESE</p>
+    </div>
+    <div class="comm-grid">
+      <div class="comm-card reveal">
+        <div class="comm-icon">🧩</div>
+        <h3>لجنة التنسيق بين اللجان</h3>
+        <p>تسهر على ضمان الانسجام والتنظيم العام بين مختلف اللجان لضمان سير العمل بفعالية.</p>
+      </div>
+      <div class="comm-card reveal">
+        <div class="comm-icon">🚀</div>
+        <h3>لجنة التكوين وريادة الأعمال</h3>
+        <p>تتكفل بإعداد وتقديم المحتوى التكويني والورشات التدريبية لتغيير عقليات الشباب.</p>
+      </div>
+      <div class="comm-card reveal">
+        <div class="comm-icon">⚡</div>
+        <h3>لجنة التأطير والتطبيق</h3>
+        <p>تعمل على مرافقة المشاركين وتحويل التكوين إلى تطبيقات وأنشطة عملية ملموسة.</p>
+      </div>
+      <div class="comm-card reveal">
+        <div class="comm-icon">📣</div>
+        <h3>لجنة الإعلام والاتصال والترويج</h3>
+        <p>مسؤولة عن التغطية الإعلامية وإدارة منصات التواصل الاجتماعي وترويج أنشطة النادي.</p>
+      </div>
+      <div class="comm-card reveal">
+        <div class="comm-icon">🤝</div>
+        <h3>لجنة الشراكات والعلاقات الخارجية</h3>
+        <p>تهدف إلى بناء علاقات وشراكات مع مختلف المؤسسات، الجمعيات، والفاعلين المحليين.</p>
+      </div>
+      <div class="comm-card reveal">
+        <div class="comm-icon">📋</div>
+        <h3>لجنة التنظيم والإدارة والتوجيه</h3>
+        <p>تتكفل بتنظيم الأنشطة والجوانب الإدارية واللوجستية لضمان سير كل فعالية بنجاح.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VALUES ═══ -->
+<section class="values">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="label">قيمنا</span>
+      <h2>ما الذي يجمعنا؟</h2>
+      <p>ستة قيم أساسية تُشكّل هوية ESE وتوجّه كل عمل نقوم به</p>
+    </div>
+    <div class="values-grid reveal">
+      <div class="value-chip"><div class="v-icon">🎯</div><span>الالتزام</span></div>
+      <div class="value-chip"><div class="v-icon">🤝</div><span>العمل الجماعي</span></div>
+      <div class="value-chip"><div class="v-icon">💡</div><span>روح المبادرة</span></div>
+      <div class="value-chip"><div class="v-icon">👑</div><span>القيادة</span></div>
+      <div class="value-chip"><div class="v-icon">🎨</div><span>الإبداع</span></div>
+      <div class="value-chip"><div class="v-icon">🌟</div><span>صناعة الأثر</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="cta-box reveal">
+    <h2>انضم إلى ESE اليوم!</h2>
+    <p>كن جزءاً من جيل الشباب الذي يصنع الفرق.<br>سجّل الآن وابدأ رحلتك نحو عالم ريادة الأعمال والمقاولتية.</p>
+    <p class="cta-slogan">«نحو شباب لا ينتظر… بل يصنع» 🚀</p>
+    <a href="register.html" class="btn-cta">سجّل الآن مجاناً ←</a>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="label">تواصل معنا</span>
+      <h2>نحن هنا من أجلك</h2>
+    </div>
+    <div class="contact-grid reveal">
+      <a href="https://www.facebook.com/profile.php?id=61589169546650" target="_blank" class="contact-card">
+        <div class="c-icon">📘</div>
+        <h4>Facebook</h4>
+        <span>ESE – DZ Young Leaders</span>
+      </a>
+      <a href="https://www.instagram.com/dz.nexora?igsh=MTQ0a21keXFwcGU3bw==" target="_blank" class="contact-card">
+        <div class="c-icon">📷</div>
+        <h4>Instagram</h4>
+        <span>@dz.nexora</span>
+      </a>
+      <a href="https://wa.me/213662958332" target="_blank" class="contact-card">
+        <div class="c-icon">💬</div>
+        <h4>WhatsApp</h4>
+        <span>+213 662 95 83 32</span>
+      </a>
+    </div>
+    <p style="text-align:center;margin-top:1.5rem;color:var(--muted);font-size:.9rem">
+      📧 ese.setif@gmail.com &nbsp;·&nbsp; 📍 ولاية سطيف، الجزائر
+    </p>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">ESE — Entrepreneurial &amp; Startup Economy</div>
+      <div class="footer-sub">
+        DZ Young Leaders · سطيف 2026<br>
+        دفعة المجاهد الرئيس الراحل اليمين زروال<br>
+        برنامج تابع لوزارة الشباب الجزائرية
+      </div>
+    </div>
+    <div class="footer-socials">
+      <a href="https://www.facebook.com/profile.php?id=61589169546650" target="_blank" class="footer-social" title="Facebook">f</a>
+      <a href="https://www.instagram.com/dz.nexora?igsh=MTQ0a21keXFwcGU3bw==" target="_blank" class="footer-social" title="Instagram">📷</a>
+      <a href="https://wa.me/213662958332" target="_blank" class="footer-social" title="WhatsApp">💬</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 ESE — Entrepreneurial &amp; Startup Economy. جميع الحقوق محفوظة.</span>
+    <a href="register.html">صفحة التسجيل</a>
+  </div>
+</footer>
 
 <script>
-/* DATA */
-const SKILLS=[
-  {n:"Arduino / C++",p:92,c:"#7c3aed"},
-  {n:"IoT Systems",p:88,c:"#06b6d4"},
-  {n:"Electronics Repair",p:95,c:"#10b981"},
-  {n:"Robotics",p:80,c:"#f59e0b"},
-  {n:"Mobile App Dev",p:70,c:"#7c3aed"},
-  {n:"n8n Automation",p:55,c:"#06b6d4"},
-  {n:"PCB Soldering",p:90,c:"#10b981"},
-  {n:"Adobe Photoshop",p:78,c:"#f59e0b"},
-  {n:"Project Management",p:85,c:"#7c3aed"},
-  {n:"Team Leadership",p:88,c:"#06b6d4"},
-];
-const CHIPS=["Arduino","C/C++","IoT","ESP32","Raspberry Pi","Robotics","n8n","Mobile Dev","PCB Design","Soldering","Photoshop","Illustrator","Git","GitHub","Embedded Systems","Microcontrollers","Workflow Automation"];
-const EXP=[
-  {t:"Section President — Scientific Club",c:"Université Ferhat Abbas Sétif 1",d:"Jan 2024 – Present",l:"Sétif",b:"Current",desc:"Led scientific workshops, Arduino & IoT sessions, and industrial visits to Samsung (Sinova) and Jeeun. Organized International Maghrebian Congress 2025 and the university Game Day.",chips:["Leadership","IoT","Arduino","Samsung","Jeeun","Event Mgmt"]},
-  {t:"Wholesale Trader — School Supplies",c:"Independent Commerce",d:"2019 – 2024",l:"El-Eulma",b:"5 Years",desc:"Full wholesale operation management: procurement, stock control, bulk sales and supplier relations. Built a strong local commercial network and led small teams under high-pressure environments.",chips:["Team Mgmt","Stock Mgmt","Sales","Business Dev"]},
-  {t:"Arduino & IoT Workshop Facilitator",c:"Club Scientifique CEE",d:"2022 – Present",l:"Sétif 1",b:"Volunteer",desc:"Designed and led hands-on Arduino/IoT workshops. Mentored new members in embedded systems and electronics. Certificate of Participation awarded.",chips:["Arduino","IoT","Teaching","Embedded Systems"]},
-  {t:"Environmental Campaign Leader",c:"Club CEE / Direction des Forêts",d:"2023 – 2024",l:"Sétif",b:"Community",desc:"Led reforestation campaign with the Direction des Forêts. Organized awareness activities promoting sustainability culture among university students.",chips:["Community","Environment","Awareness"]},
-];
-const PROJECTS=[
-  {e:"📱",n:"Mobile Application",d:"Custom mobile app in active development — end-to-end architecture and implementation.",tags:["Mobile Dev","In Progress","Startup"]},
-  {e:"🤖",n:"Robotics System",d:"Autonomous robotic system with integrated sensors and actuators for inter-university competitions.",tags:["Robotics","Arduino","C++","Sensors"]},
-  {e:"🌐",n:"IoT Smart Monitoring",d:"ESP32/Arduino-based environment monitoring with real-time data and service integrations.",tags:["IoT","ESP32","Arduino","C++"]},
-  {e:"⚡",n:"EDC System — Electro Future Challenge",d:"Innovation project submitted to national competition organized by ANVREDET, Ministry of Higher Education.",tags:["Electronics","Innovation","ANVREDET","Patent Pending"]},
-  {e:"🔧",n:"Electronics Repair Lab",d:"Professional smartphone & computer repair service covering PCB-level work and hardware/software troubleshooting.",tags:["Repair","PCB","Soldering","Hardware"]},
-  {e:"⚙️",n:"n8n Workflow Automations",d:"Automation workflows connecting IoT sensors to Telegram, Google Sheets and external APIs via n8n.",tags:["n8n","Automation","IoT","APIs"]},
-];
-const EDU=[
-  {i:"🎓",d:"Master 1 — Micro-Electronics",s:"Université Ferhat Abbas Sétif 1",dt:"2024 – Present"},
-  {i:"⚡",d:"Licence — Electronics",s:"Université Ferhat Abbas Sétif 1",dt:"2021 – 2024"},
-  {i:"🏫",d:"Baccalauréat",s:"Lycée Mohammed Al-Bashir Al-Ibrahimi",dt:"2020"},
-  {i:"🏭",d:"Industrial Visit — Samsung (Sinova)",s:"Dept. of Electronics, Sétif 1",dt:"Nov 2025"},
-];
-const LANGS=[
-  {f:"🇩🇿",n:"Arabic",l:"Native",p:5},
-  {f:"🇫🇷",n:"French",l:"Intermediate (B1)",p:3},
-  {f:"🇬🇧",n:"English",l:"Advanced (B2)",p:4},
-];
-const CONTACTS=[
-  {i:"📧",bg:"rgba(124,58,237,.12)",l:"Email",v:"abderrezakgridi@gmail.com"},
-  {i:"📞",bg:"rgba(6,182,212,.12)",l:"Phone",v:"+213 554 083 202"},
-  {i:"📍",bg:"rgba(16,185,129,.12)",l:"Location",v:"El-Eulma, Sétif, Algeria"},
-  {i:"💻",bg:"rgba(245,158,11,.12)",l:"GitHub",v:"github.com/abdou07mm-spec"},
-  {i:"🚀",bg:"rgba(124,58,237,.12)",l:"Status",v:"Open to opportunities"},
-];
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-/* CURSOR */
-const dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
-(function tick(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick)})();
-document.querySelectorAll('a,button,.btn,.chip,.proj-card,.job-card,.cc,.glass').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{ring.style.width='50px';ring.style.height='50px';ring.style.borderColor='rgba(124,58,237,.7)'});
-  el.addEventListener('mouseleave',()=>{ring.style.width='32px';ring.style.height='32px';ring.style.borderColor='rgba(124,58,237,.5)'});
-});
+  function toggleMenu() {
+    document.getElementById('nav-mobile').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('nav-mobile').classList.remove('open');
+  }
 
-/* LOADER */
-window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('gone'),2200));
-
-/* BUILD */
-// Skills
-const sg=document.getElementById('skillsGrid');
-SKILLS.forEach(s=>{
-  sg.innerHTML+=`<div class="skill-row rev">
-    <div class="skill-head"><span class="skill-lbl">${s.n}</span><span class="skill-num">${s.p}%</span></div>
-    <div class="skill-track"><div class="skill-bar" data-p="${s.p}" style="background:linear-gradient(90deg,${s.c},${s.c}88)"></div></div>
-  </div>`;
-});
-const cc=document.getElementById('chipCloud');
-CHIPS.forEach(c=>cc.innerHTML+=`<span class="chip">${c}</span>`);
-
-// Experience
-const tl=document.getElementById('tl');
-EXP.forEach(e=>{
-  tl.innerHTML+=`<div class="tl-item"><div class="tl-dot"></div>
-    <div class="job-card glass">
-      <div class="jt"><span class="jt-title">${e.t}</span><span class="jt-badge">${e.b}</span></div>
-      <div class="jt-meta">${e.c} · <em>${e.d}</em> · ${e.l}</div>
-      <p class="jt-desc">${e.desc}</p>
-      <div class="jt-chips">${e.chips.map(c=>`<span class="jt-chip">${c}</span>`).join('')}</div>
-    </div></div>`;
-});
-
-// Projects
-const pg=document.getElementById('projGrid');
-PROJECTS.forEach((p,i)=>{
-  const d=document.createElement('div');
-  d.className='proj-card glass';d.style.transitionDelay=(i%3*.12)+'s';
-  d.innerHTML=`<span class="proj-emoji">${p.e}</span><div class="proj-name">${p.n}</div>
-    <p class="proj-desc">${p.d}</p>
-    <div class="proj-tags">${p.tags.map(t=>`<span class="proj-tag">${t}</span>`).join('')}</div>`;
-  pg.appendChild(d);
-});
-
-// Education
-const eg=document.getElementById('eduGrid');
-EDU.forEach((e,i)=>{eg.innerHTML+=`<div class="edu-card glass" style="transition-delay:${i*.08}s">
-  <div class="edu-ico">${e.i}</div><div class="edu-deg">${e.d}</div>
-  <div class="edu-sch">${e.s}</div><div class="edu-dt">${e.dt}</div></div>`});
-
-// Languages
-const ls=document.getElementById('langStrip');
-LANGS.forEach((l,i)=>{ls.innerHTML+=`<div class="lang-card" style="transition-delay:${i*.1}s">
-  <span class="lang-flag">${l.f}</span>
-  <div><div class="lang-n">${l.n}</div><div class="lang-l">${l.l}</div>
-  <div class="lang-pips">${Array.from({length:5},(_,j)=>`<div class="pip${j<l.p?' on':''}"></div>`).join('')}</div></div>
-</div>`});
-
-// Contact
-const cs=document.getElementById('contactStack');
-CONTACTS.forEach(c=>{cs.innerHTML+=`<div class="cc glass">
-  <div class="cc-icon" style="background:${c.bg}">${c.i}</div>
-  <div><div class="cc-lbl">${c.l}</div><div class="cc-val">${c.v}</div></div></div>`});
-
-/* INTERSECTION OBSERVER */
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(!e.isIntersecting)return;
-    e.target.classList.add('vis');
-    const bar=e.target.querySelector('.skill-bar');
-    if(bar&&bar.dataset.p&&!bar.dataset.done){
-      bar.dataset.done=1;
-      setTimeout(()=>{bar.style.width=bar.dataset.p+'%';setTimeout(()=>bar.classList.add('lit'),1300)},80);
-    }
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.padding = window.scrollY > 60 ? '.5rem 2rem' : '.75rem 2rem';
   });
-},{threshold:.12});
-
-document.querySelectorAll(
-  '.rev,.rev-l,.rev-r,.job-card,.proj-card,.edu-card,.cc,.lang-card,.skill-row'
-).forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
