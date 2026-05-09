@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXORA DZ — نادي DZ Young Leaders · ولاية سطيف</title>
-  <meta name="description" content="NEXORA DZ — نادي ريادة الأعمال والمؤسسات الناشئة في ولاية سطيف، ضمن برنامج DZ Young Leaders الوطني.">
+  <title>ESE — Entrepreneurial & Startup Economy · DZ Young Leaders سطيف 2026</title>
+  <meta name="description" content="نادي المقاولتية واقتصاد المؤسسات الناشئة — ESE — DZ Young Leaders سطيف 2026">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -30,337 +30,414 @@
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 999;
-      background: rgba(15,61,34,.95); backdrop-filter: blur(12px);
+      background: rgba(15,61,34,.96); backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(201,162,39,.2);
-      padding: .75rem 2rem;
-      display: flex; align-items: center; justify-content: space-between;
+      padding: .75rem 2rem; transition: padding .3s;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     }
-    .nav-logo { font-size: 1.3rem; font-weight: 900; color: var(--white); text-decoration: none; }
+    .nav-logo { font-size: 1.25rem; font-weight: 900; color: var(--white); text-decoration: none; white-space: nowrap; }
     .nav-logo span { color: var(--gold-l); }
     .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,.8); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .2s; }
+    .nav-links a { color: rgba(255,255,255,.8); text-decoration: none; font-size: .88rem; font-weight: 600; transition: color .2s; white-space: nowrap; }
     .nav-links a:hover { color: var(--gold-l); }
-    .nav-cta {
-      background: var(--gold); color: var(--green-dark); padding: .5rem 1.25rem;
-      border-radius: 50px; font-weight: 800; font-size: .9rem; text-decoration: none;
-      transition: all .2s; white-space: nowrap;
-    }
+    .nav-socials { display: flex; gap: .6rem; align-items: center; }
+    .nav-social-icon { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: .95rem; transition: all .2s; }
+    .nav-social-icon:hover { background: var(--gold); border-color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--green-dark); padding: .5rem 1.25rem; border-radius: 50px; font-weight: 800; font-size: .9rem; text-decoration: none; transition: all .2s; white-space: nowrap; }
     .nav-cta:hover { background: var(--gold-l); transform: translateY(-1px); }
-    .nav-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
-
-    @media(max-width:768px) {
-      .nav-links { display: none; }
-      .nav-menu-btn { display: block; }
-    }
+    .nav-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; flex-shrink: 0; }
+    .nav-mobile { display: none; position: fixed; top: 56px; right: 0; left: 0; background: rgba(15,61,34,.98); padding: 1.5rem 2rem; flex-direction: column; gap: 1rem; z-index: 998; border-bottom: 1px solid rgba(201,162,39,.2); }
+    .nav-mobile a { color: rgba(255,255,255,.85); text-decoration: none; font-size: 1rem; font-weight: 700; padding: .5rem 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav-mobile.open { display: flex; }
+    @media(max-width: 900px) { .nav-links { display: none; } .nav-menu-btn { display: block; } .nav-socials { display: none; } }
 
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(150deg, var(--green-dark) 0%, var(--green) 50%, #1d7a44 100%);
+      background: linear-gradient(150deg, #072315 0%, var(--green-dark) 35%, var(--green) 70%, #1d7a44 100%);
       display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 6rem 1.5rem 4rem; position: relative; overflow: hidden;
+      text-align: center; padding: 7rem 1.5rem 5rem; position: relative; overflow: hidden;
     }
     .hero::before {
       content: ''; position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z' fill-rule='evenodd'/%3E%3C/g%3E%3C/svg%3E");
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z' fill-rule='evenodd'/%3E%3C/g%3E%3C/svg%3E");
     }
-    .hero-glow {
-      position: absolute; width: 600px; height: 600px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,162,39,.15) 0%, transparent 70%);
-      top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;
-    }
-    .hero-inner { position: relative; z-index: 1; max-width: 800px; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(201,162,39,.15); border: 1px solid rgba(201,162,39,.4);
-      border-radius: 50px; padding: .45rem 1.25rem; color: var(--gold-l);
-      font-size: .85rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: .5px;
-    }
-    .hero h1 { font-size: clamp(2.8rem, 8vw, 5rem); font-weight: 900; color: var(--white); line-height: 1.05; margin-bottom: .5rem; }
+    .hero-glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(201,162,39,.12) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+    .hero-inner { position: relative; z-index: 1; max-width: 860px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(201,162,39,.15); border: 1px solid rgba(201,162,39,.4); border-radius: 50px; padding: .45rem 1.4rem; color: var(--gold-l); font-size: .85rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: .5px; }
+    .hero-dafaa { font-size: .82rem; color: rgba(255,255,255,.6); margin-bottom: 1.5rem; font-style: italic; }
+    .hero h1 { font-size: clamp(2.6rem, 8vw, 5rem); font-weight: 900; color: var(--white); line-height: 1.05; margin-bottom: .4rem; }
     .hero h1 span { color: var(--gold-l); }
-    .hero-sub { font-size: clamp(1rem, 2.5vw, 1.25rem); color: rgba(255,255,255,.75); margin: 1.25rem 0 2rem; line-height: 1.7; }
+    .hero-tagline { font-size: clamp(.9rem, 2vw, 1.1rem); color: var(--gold-l); font-weight: 700; letter-spacing: 1px; margin-bottom: 1rem; opacity: .9; }
+    .hero-sub { font-size: clamp(.95rem, 2.2vw, 1.15rem); color: rgba(255,255,255,.72); margin: 0 0 2rem; line-height: 1.8; }
     .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
-    .btn-hero-main {
-      background: linear-gradient(135deg, var(--gold), var(--gold-l));
-      color: var(--green-dark); padding: .9rem 2.5rem; border-radius: 50px;
-      font-weight: 900; font-size: 1.1rem; text-decoration: none;
-      box-shadow: 0 8px 30px rgba(201,162,39,.4); transition: all .25s;
-    }
+    .btn-hero-main { background: linear-gradient(135deg, var(--gold), var(--gold-l)); color: var(--green-dark); padding: .9rem 2.5rem; border-radius: 50px; font-weight: 900; font-size: 1.1rem; text-decoration: none; box-shadow: 0 8px 30px rgba(201,162,39,.4); transition: all .25s; }
     .btn-hero-main:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(201,162,39,.5); }
-    .btn-hero-ghost {
-      background: rgba(255,255,255,.1); color: var(--white); padding: .9rem 2rem;
-      border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none;
-      border: 1.5px solid rgba(255,255,255,.3); transition: all .25s;
-    }
+    .btn-hero-ghost { background: rgba(255,255,255,.1); color: var(--white); padding: .9rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; border: 1.5px solid rgba(255,255,255,.3); transition: all .25s; }
     .btn-hero-ghost:hover { background: rgba(255,255,255,.2); }
-    .hero-stats { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
-    .stat { text-align: center; }
-    .stat-num { font-size: 2rem; font-weight: 900; color: var(--gold-l); line-height: 1; }
-    .stat-label { font-size: .8rem; color: rgba(255,255,255,.65); font-weight: 500; margin-top: .2rem; }
-    .hero-scroll {
-      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-      color: rgba(255,255,255,.5); font-size: .8rem; display: flex; flex-direction: column;
-      align-items: center; gap: .4rem; animation: bounce 2s infinite;
-    }
-    .hero-scroll::after { content: '↓'; font-size: 1.2rem; }
+    .hero-stats { display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; }
+    .stat .stat-num { font-size: 2.2rem; font-weight: 900; color: var(--gold-l); line-height: 1; }
+    .stat .stat-label { font-size: .78rem; color: rgba(255,255,255,.6); font-weight: 500; margin-top: .2rem; }
+    .hero-scroll { position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.45); font-size: .78rem; display: flex; flex-direction: column; align-items: center; gap: .3rem; animation: bounce 2s infinite; }
+    .hero-scroll::after { content: '↓'; font-size: 1.1rem; }
     @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
 
-    /* ── SECTIONS ── */
+    /* ── LEADER BANNER ── */
+    .leader-banner { background: var(--green-dark); padding: 2rem 1.5rem; text-align: center; border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); }
+    .leader-banner-inner { max-width: 700px; margin: 0 auto; }
+    .leader-banner .label { display: inline-block; background: rgba(201,162,39,.15); border: 1px solid rgba(201,162,39,.3); border-radius: 50px; padding: .25rem .9rem; font-size: .78rem; font-weight: 700; color: var(--gold-l); margin-bottom: .75rem; }
+    .leader-banner h3 { font-size: clamp(1.2rem,3vw,1.7rem); font-weight: 900; color: var(--white); margin-bottom: .3rem; }
+    .leader-banner h3 span { color: var(--gold-l); }
+    .leader-banner p { font-size: .88rem; color: rgba(255,255,255,.6); }
+
+    /* ── SHARED ── */
     section { padding: 5rem 1.5rem; }
     .container { max-width: 1100px; margin: 0 auto; }
-    .section-title {
-      text-align: center; margin-bottom: 3.5rem;
-    }
-    .section-title .label {
-      display: inline-block; background: var(--green-xl); color: var(--green);
-      padding: .3rem 1rem; border-radius: 50px; font-size: .82rem; font-weight: 700;
-      margin-bottom: .75rem; border: 1px solid rgba(26,107,60,.2);
-    }
-    .section-title h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; color: var(--green-dark); margin-bottom: .6rem; }
-    .section-title p { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 600px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 3.5rem; }
+    .section-title .label { display: inline-block; background: var(--green-xl); color: var(--green); padding: .3rem 1rem; border-radius: 50px; font-size: .82rem; font-weight: 700; margin-bottom: .75rem; border: 1px solid rgba(26,107,60,.2); }
+    .section-title h2 { font-size: clamp(1.6rem,4vw,2.4rem); font-weight: 900; color: var(--green-dark); margin-bottom: .6rem; }
+    .section-title p { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 640px; margin: 0 auto; }
 
     /* ── ABOUT ── */
     .about { background: var(--white); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .about-text h2 { font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 900; color: var(--green-dark); margin-bottom: 1rem; line-height: 1.3; }
-    .about-text p { color: var(--muted); line-height: 1.8; font-size: 1rem; margin-bottom: 1rem; }
-    .about-points { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: .75rem; }
-    .about-points li { display: flex; align-items: flex-start; gap: .75rem; font-size: .95rem; color: var(--text); font-weight: 500; }
-    .about-points li::before { content: '✓'; background: var(--green); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 900; flex-shrink: 0; margin-top: .1rem; }
-    .about-visual {
-      background: linear-gradient(135deg, var(--green-dark), var(--green));
-      border-radius: 24px; padding: 2.5rem; color: white; text-align: center;
-      box-shadow: 0 20px 60px rgba(15,61,34,.25);
-    }
-    .about-visual .big-text { font-size: 4rem; font-weight: 900; color: var(--gold-l); line-height: 1; }
-    .about-visual .sub-text { font-size: 1rem; opacity: .8; margin-top: .5rem; }
+    .about-text h2 { font-size: clamp(1.5rem,3vw,2.1rem); font-weight: 900; color: var(--green-dark); margin-bottom: 1rem; line-height: 1.3; }
+    .about-text p { color: var(--muted); line-height: 1.85; font-size: .97rem; margin-bottom: .85rem; }
+    .about-text .quote { background: var(--green-xl); border-right: 4px solid var(--green); border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; font-size: 1rem; font-weight: 700; color: var(--green-dark); font-style: italic; margin: 1.25rem 0; }
+    .about-visual { background: linear-gradient(135deg, var(--green-dark), var(--green)); border-radius: 24px; padding: 2.5rem; color: white; text-align: center; box-shadow: 0 20px 60px rgba(15,61,34,.25); }
+    .about-visual .big-text { font-size: 3.5rem; font-weight: 900; color: var(--gold-l); line-height: 1; }
+    .about-visual .sub-text { font-size: .9rem; opacity: .75; margin-top: .4rem; }
     .about-visual .divider { height: 1px; background: rgba(255,255,255,.15); margin: 1.5rem 0; }
     .about-visual .row { display: flex; justify-content: space-around; }
     .about-visual .mini-stat .n { font-size: 1.8rem; font-weight: 900; color: var(--gold-l); }
-    .about-visual .mini-stat .l { font-size: .75rem; opacity: .7; }
+    .about-visual .mini-stat .l { font-size: .72rem; opacity: .7; }
+    .about-visual .tagline { font-size: .95rem; font-weight: 800; color: var(--gold-l); margin-top: 1.5rem; }
     @media(max-width:768px) { .about-grid { grid-template-columns: 1fr; } }
 
-    /* ── PATHS ── */
-    .paths { background: var(--bg); }
-    .paths-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .path-card {
-      background: var(--white); border-radius: 16px; padding: 2rem 1.5rem;
-      border: 1.5px solid var(--border); position: relative; overflow: hidden;
-      transition: transform .25s, box-shadow .25s;
-    }
-    .path-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(15,61,34,.12); }
-    .path-card::before {
-      content: ''; position: absolute; top: 0; right: 0; left: 0; height: 4px;
-      background: linear-gradient(90deg, var(--green), var(--gold));
-    }
-    .path-num { font-size: 3.5rem; font-weight: 900; color: var(--green-xl); line-height: 1; margin-bottom: .5rem; }
-    .path-period { display: inline-block; background: var(--green-xl); color: var(--green); padding: .25rem .75rem; border-radius: 50px; font-size: .78rem; font-weight: 700; margin-bottom: 1rem; }
-    .path-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--green-dark); margin-bottom: .75rem; }
-    .path-card ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
-    .path-card ul li { font-size: .88rem; color: var(--muted); padding-right: 1.2rem; position: relative; }
-    .path-card ul li::before { content: '←'; position: absolute; right: 0; color: var(--gold); font-size: .8rem; }
-    @media(max-width:768px) { .paths-grid { grid-template-columns: 1fr; } }
+    /* ── VISION & MISSION ── */
+    .vision { background: var(--bg); }
+    .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .vm-card { background: var(--white); border-radius: 18px; padding: 2.5rem; border: 1.5px solid var(--border); transition: all .25s; }
+    .vm-card:hover { border-color: var(--green); box-shadow: 0 10px 30px rgba(26,107,60,.1); }
+    .vm-card .vm-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .vm-card h3 { font-size: 1.25rem; font-weight: 900; color: var(--green-dark); margin-bottom: 1rem; }
+    .vm-card p { color: var(--muted); line-height: 1.8; font-size: .95rem; }
+    .vm-card ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; margin-top: .75rem; }
+    .vm-card ul li { font-size: .9rem; color: var(--text); padding-right: 1.3rem; position: relative; line-height: 1.5; }
+    .vm-card ul li::before { content: '✦'; position: absolute; right: 0; color: var(--gold); font-size: .7rem; top: .3rem; }
+    @media(max-width:640px) { .vm-grid { grid-template-columns: 1fr; } }
+
+    /* ── GOALS ── */
+    .goals { background: var(--white); }
+    .goals-main { background: linear-gradient(135deg, var(--green-dark), var(--green)); border-radius: 20px; padding: 2.5rem; color: white; text-align: center; margin-bottom: 2rem; }
+    .goals-main h3 { font-size: 1.1rem; font-weight: 700; opacity: .8; margin-bottom: .5rem; }
+    .goals-main .big-goal { font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 900; color: var(--gold-l); line-height: 1.1; }
+    .goals-main p { font-size: .9rem; opacity: .75; margin-top: .75rem; }
+    .goals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .goal-item { background: var(--bg); border-radius: 14px; padding: 1.5rem; border: 1.5px solid var(--border); transition: all .2s; }
+    .goal-item:hover { border-color: var(--green); background: var(--green-xl); }
+    .goal-item .g-icon { font-size: 1.8rem; margin-bottom: .75rem; }
+    .goal-item p { font-size: .88rem; color: var(--text); line-height: 1.6; font-weight: 500; }
+    @media(max-width:768px) { .goals-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:480px) { .goals-grid { grid-template-columns: 1fr; } }
+
+    /* ── ACTIVITIES ── */
+    .activities { background: var(--bg); }
+    .act-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .act-card { background: var(--white); border-radius: 18px; padding: 2rem; border: 1.5px solid var(--border); transition: all .25s; }
+    .act-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(15,61,34,.1); border-color: var(--green); }
+    .act-num { font-size: 2.5rem; font-weight: 900; color: var(--green-xl); line-height: 1; margin-bottom: .5rem; }
+    .act-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--green-dark); margin-bottom: .6rem; }
+    .act-card p { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: .75rem; }
+    .act-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .act-tag { background: var(--green-xl); color: var(--green); padding: .2rem .7rem; border-radius: 50px; font-size: .75rem; font-weight: 700; }
+    @media(max-width:640px) { .act-grid { grid-template-columns: 1fr; } }
 
     /* ── COMMITTEES ── */
     .committees { background: var(--white); }
-    .comm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-    .comm-card {
-      border-radius: 16px; padding: 2rem; border: 1.5px solid var(--border);
-      transition: all .25s; cursor: default;
-      background: var(--white);
-    }
-    .comm-card:hover { border-color: var(--green); box-shadow: 0 8px 30px rgba(26,107,60,.1); transform: translateY(-4px); }
-    .comm-icon { font-size: 2.2rem; margin-bottom: 1rem; }
-    .comm-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--green-dark); margin-bottom: .5rem; }
-    .comm-role { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--gold); background: var(--gold-pale); padding: .2rem .75rem; border-radius: 50px; margin-bottom: .75rem; }
-    .comm-card p { font-size: .9rem; color: var(--muted); line-height: 1.7; }
-    .comm-tasks { margin-top: 1rem; display: flex; flex-direction: column; gap: .4rem; }
-    .comm-tasks span { font-size: .82rem; color: var(--text); font-weight: 500; display: flex; align-items: center; gap: .4rem; }
-    .comm-tasks span::before { content: '▸'; color: var(--green); }
-    @media(max-width:640px) { .comm-grid { grid-template-columns: 1fr; } }
+    .comm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .comm-card { border-radius: 16px; padding: 1.75rem; border: 1.5px solid var(--border); transition: all .25s; background: var(--white); }
+    .comm-card:hover { border-color: var(--green); box-shadow: 0 8px 28px rgba(26,107,60,.1); transform: translateY(-4px); }
+    .comm-icon { font-size: 2rem; margin-bottom: .75rem; }
+    .comm-card h3 { font-size: .95rem; font-weight: 800; color: var(--green-dark); margin-bottom: .5rem; line-height: 1.3; }
+    .comm-card p { font-size: .83rem; color: var(--muted); line-height: 1.65; }
+    @media(max-width:900px) { .comm-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:540px) { .comm-grid { grid-template-columns: 1fr; } }
 
-    /* ── WHO ── */
-    .who { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%); color: white; }
-    .who .section-title .label { background: rgba(255,255,255,.1); color: var(--gold-l); border-color: rgba(255,255,255,.2); }
-    .who .section-title h2 { color: white; }
-    .who .section-title p { color: rgba(255,255,255,.7); }
-    .who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .who-card {
-      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
-      border-radius: 16px; padding: 1.75rem; text-align: center; transition: all .25s;
-    }
-    .who-card:hover { background: rgba(255,255,255,.14); transform: translateY(-4px); }
-    .who-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
-    .who-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: .5rem; color: var(--gold-l); }
-    .who-card p { font-size: .88rem; color: rgba(255,255,255,.7); line-height: 1.6; }
-    @media(max-width:768px) { .who-grid { grid-template-columns: 1fr; } }
+    /* ── VALUES ── */
+    .values { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%); }
+    .values .section-title .label { background: rgba(255,255,255,.1); color: var(--gold-l); border-color: rgba(255,255,255,.2); }
+    .values .section-title h2 { color: white; }
+    .values .section-title p { color: rgba(255,255,255,.7); }
+    .values-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .value-chip { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 14px; padding: 1.25rem 1.75rem; text-align: center; min-width: 150px; transition: all .2s; }
+    .value-chip:hover { background: rgba(201,162,39,.2); border-color: var(--gold); transform: translateY(-3px); }
+    .value-chip .v-icon { font-size: 1.8rem; margin-bottom: .4rem; }
+    .value-chip span { font-size: .92rem; font-weight: 700; color: white; display: block; }
 
     /* ── CTA ── */
-    .cta-section {
-      background: var(--bg); padding: 5rem 1.5rem;
-      text-align: center;
-    }
-    .cta-box {
-      max-width: 700px; margin: 0 auto;
-      background: linear-gradient(135deg, var(--green-dark), var(--green));
-      border-radius: 24px; padding: 4rem 2rem;
-      box-shadow: 0 20px 60px rgba(15,61,34,.25);
-      position: relative; overflow: hidden;
-    }
-    .cta-box::before {
-      content: ''; position: absolute; top: -50%; right: -20%;
-      width: 400px; height: 400px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,162,39,.15) 0%, transparent 70%);
-    }
+    .cta-section { background: var(--bg); padding: 5rem 1.5rem; text-align: center; }
+    .cta-box { max-width: 750px; margin: 0 auto; background: linear-gradient(135deg, var(--green-dark), var(--green)); border-radius: 24px; padding: 4rem 2rem; box-shadow: 0 20px 60px rgba(15,61,34,.25); position: relative; overflow: hidden; }
+    .cta-box::before { content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(201,162,39,.12) 0%, transparent 70%); pointer-events: none; }
     .cta-box h2 { font-size: clamp(1.6rem,4vw,2.4rem); font-weight: 900; color: white; margin-bottom: 1rem; position: relative; }
-    .cta-box p { color: rgba(255,255,255,.75); font-size: 1rem; line-height: 1.7; margin-bottom: 2.5rem; position: relative; }
-    .cta-deadline {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(201,162,39,.2); border: 1px solid rgba(201,162,39,.4);
-      border-radius: 50px; padding: .4rem 1.2rem; color: var(--gold-l);
-      font-size: .85rem; font-weight: 700; margin-bottom: 2rem; position: relative;
-    }
-    .btn-cta {
-      display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-l));
-      color: var(--green-dark); padding: 1rem 3rem; border-radius: 50px;
-      font-weight: 900; font-size: 1.15rem; text-decoration: none;
-      box-shadow: 0 8px 30px rgba(201,162,39,.4); transition: all .25s; position: relative;
-    }
+    .cta-box p { color: rgba(255,255,255,.72); font-size: 1rem; line-height: 1.75; margin-bottom: 2rem; position: relative; }
+    .cta-slogan { font-size: 1.1rem; font-weight: 800; color: var(--gold-l); margin-bottom: 2rem; position: relative; }
+    .btn-cta { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-l)); color: var(--green-dark); padding: 1rem 3.5rem; border-radius: 50px; font-weight: 900; font-size: 1.15rem; text-decoration: none; box-shadow: 0 8px 30px rgba(201,162,39,.4); transition: all .25s; position: relative; }
     .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(201,162,39,.5); }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--green-dark); color: rgba(255,255,255,.6);
-      text-align: center; padding: 2rem 1rem; font-size: .85rem; line-height: 1.8;
-    }
-    footer strong { color: var(--gold-l); }
-    footer a { color: rgba(255,255,255,.5); text-decoration: none; }
-    footer a:hover { color: var(--gold-l); }
+    /* ── CONTACT ── */
+    .contact { background: var(--white); padding: 4rem 1.5rem; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+    .contact-card { background: var(--bg); border-radius: 16px; padding: 2rem; text-align: center; border: 1.5px solid var(--border); transition: all .25s; text-decoration: none; }
+    .contact-card:hover { border-color: var(--green); transform: translateY(-4px); box-shadow: 0 10px 28px rgba(26,107,60,.1); }
+    .contact-card .c-icon { font-size: 2.2rem; margin-bottom: .75rem; }
+    .contact-card h4 { font-size: .9rem; font-weight: 800; color: var(--green-dark); margin-bottom: .3rem; }
+    .contact-card span { font-size: .82rem; color: var(--muted); }
+    @media(max-width:640px) { .contact-grid { grid-template-columns: 1fr; } }
 
-    /* ── SCROLL REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+    /* ── FOOTER ── */
+    footer { background: var(--green-dark); color: rgba(255,255,255,.6); padding: 2.5rem 1.5rem; }
+    .footer-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+    .footer-brand { font-size: 1.3rem; font-weight: 900; color: var(--gold-l); margin-bottom: .4rem; }
+    .footer-sub { font-size: .82rem; line-height: 1.7; }
+    .footer-socials { display: flex; gap: .75rem; }
+    .footer-social { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 1.1rem; transition: all .2s; }
+    .footer-social:hover { background: var(--gold); border-color: var(--gold); }
+    .footer-bottom { max-width: 900px; margin: 1.5rem auto 0; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.1); text-align: center; font-size: .8rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
+    .footer-bottom a { color: rgba(255,255,255,.5); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--gold-l); }
+    @media(max-width:540px) { .footer-inner { grid-template-columns: 1fr; text-align: center; } .footer-socials { justify-content: center; } .footer-bottom { justify-content: center; } }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
 <!-- ═══ NAV ═══ -->
-<nav>
-  <a href="index.html" class="nav-logo">NEXORA <span>DZ</span></a>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">ESE <span>DZ</span></a>
   <ul class="nav-links">
-    <li><a href="#about">البرنامج</a></li>
-    <li><a href="#paths">المسارات</a></li>
+    <li><a href="#about">من نحن</a></li>
+    <li><a href="#vision">رؤيتنا</a></li>
+    <li><a href="#activities">أنشطتنا</a></li>
     <li><a href="#committees">اللجان</a></li>
-    <li><a href="#who">من يمكنه التسجيل؟</a></li>
+    <li><a href="#contact">تواصل</a></li>
   </ul>
+  <div class="nav-socials">
+    <a href="https://www.facebook.com/profile.php?id=61589169546650" target="_blank" class="nav-social-icon" title="Facebook">f</a>
+    <a href="https://www.instagram.com/dz.nexora?igsh=MTQ0a21keXFwcGU3bw==" target="_blank" class="nav-social-icon" title="Instagram">📷</a>
+    <a href="https://wa.me/213662958332" target="_blank" class="nav-social-icon" title="WhatsApp">💬</a>
+  </div>
   <a href="register.html" class="nav-cta">سجّل الآن ←</a>
-  <button class="nav-menu-btn" onclick="toggleMenu()">☰</button>
+  <button class="nav-menu-btn" onclick="toggleMenu()" aria-label="قائمة">☰</button>
 </nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#about" onclick="closeMenu()">من نحن</a>
+  <a href="#vision" onclick="closeMenu()">رؤيتنا</a>
+  <a href="#activities" onclick="closeMenu()">أنشطتنا</a>
+  <a href="#committees" onclick="closeMenu()">اللجان</a>
+  <a href="#contact" onclick="closeMenu()">تواصل معنا</a>
+  <a href="register.html" style="color:var(--gold-l) !important;font-size:1.05rem">← سجّل الآن</a>
+</div>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="hero-inner">
-    <div class="hero-badge">⭐ DZ Young Leaders — ولاية سطيف</div>
-    <h1>NEXORA <span>DZ</span></h1>
+    <div class="hero-badge">🇩🇿 DZ Young Leaders — سطيف 2026</div>
+    <p class="hero-dafaa">دفعة المجاهد الرئيس الراحل اليمين زروال</p>
+    <h1>نادي <span>ESE</span></h1>
+    <p class="hero-tagline">Entrepreneurial &amp; Startup Economy</p>
     <p class="hero-sub">
-      نادي ريادة الأعمال والمؤسسات الناشئة<br>
-      ابنِ مستقبلك · قُد التغيير · أثّر في مجتمعك
+      نادي المقاولتية واقتصاد المؤسسات الناشئة<br>
+      نحو شباب لا ينتظر… بل يصنع
     </p>
     <div class="hero-btns">
       <a href="register.html" class="btn-hero-main">سجّل الآن 🚀</a>
-      <a href="#about" class="btn-hero-ghost">اعرف أكثر</a>
+      <a href="#about" class="btn-hero-ghost">اكتشف النادي</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">3</div><div class="stat-label">مسارات تكوينية</div></div>
-      <div class="stat"><div class="stat-num">4</div><div class="stat-label">لجان متخصصة</div></div>
+      <div class="stat"><div class="stat-num">1000</div><div class="stat-label">شاب مستهدف</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">لجان متخصصة</div></div>
       <div class="stat"><div class="stat-num">18-35</div><div class="stat-label">الفئة العمرية</div></div>
       <div class="stat"><div class="stat-num">سطيف</div><div class="stat-label">ولاية الانطلاق</div></div>
     </div>
   </div>
-  <div class="hero-scroll">اسحب للأسفل</div>
+  <div class="hero-scroll">اسحب</div>
 </section>
+
+<!-- ═══ LEADER BANNER ═══ -->
+<div class="leader-banner">
+  <div class="leader-banner-inner">
+    <span class="label">👑 قائد النادي</span>
+    <h3>أشرف موساوي <span>بهاء الدين</span></h3>
+    <p>DZ Young Leaders – سطيف 2026 · ESE Entrepreneurial &amp; Startup Economy</p>
+  </div>
+</div>
 
 <!-- ═══ ABOUT ═══ -->
 <section class="about" id="about">
   <div class="container">
     <div class="about-grid reveal">
       <div class="about-text">
-        <h2>ما هو برنامج DZ Young Leaders؟</h2>
+        <h2>من نحن؟</h2>
         <p>
-          برنامج وطني تكويني تابع لوزارة الشباب، يهدف إلى بناء جيل من القادة الشباب الذين يمتلكون مهارات ريادة الأعمال، التفكير الاستراتيجي، والابتكار المجتمعي.
+          نحن مجموعة شبابية طموحة من ولاية سطيف، منبثقة عن برنامج وزارة الشباب
+          <strong>«تأهيل القيادات الشبابية 2026»</strong>
+          دفعة المجاهد الرئيس الراحل اليمين زروال.
         </p>
         <p>
-          في ولاية سطيف، يتجسّد هذا البرنامج من خلال نادي <strong>NEXORA DZ</strong> الذي يسعى إلى خلق بيئة شبابية تحاكي منظومة الـ Startup Ecosystem.
+          يجمعنا هدف واحد: تغيير نظرة الشباب نحو ريادة الأعمال والمقاولتية، والعمل على بناء جيل مبادر قادر على تحويل أفكاره إلى مشاريع ومبادرات ذات أثر حقيقي.
         </p>
-        <ul class="about-points">
-          <li>تدريب نظري وتطبيق ميداني متكامل</li>
-          <li>العمل على مشاريع ذات أثر مجتمعي حقيقي</li>
-          <li>احتكاك مباشر مع خبراء وروّاد أعمال</li>
-          <li>بناء شبكة علاقات شبابية محلية ووطنية</li>
-          <li>شهادة مشاركة معتمدة من وزارة الشباب</li>
-        </ul>
+        <p>
+          نؤمن أن التعليم لا يجب أن يكون مجرد طريق نحو وظيفة، بل وسيلة لبناء مشروع مستقبلي يخلق القيمة والفرص.
+        </p>
+        <div class="quote">
+          «نحو شباب لا ينتظر… بل يصنع»
+        </div>
       </div>
       <div class="about-visual">
         <div class="big-text">2026</div>
-        <div class="sub-text">دورة الانطلاق</div>
+        <div class="sub-text">DZ Young Leaders · سطيف</div>
         <div class="divider"></div>
         <div class="row">
-          <div class="mini-stat"><div class="n">12</div><div class="l">شهر</div></div>
-          <div class="mini-stat"><div class="n">3</div><div class="l">مسارات</div></div>
-          <div class="mini-stat"><div class="n">∞</div><div class="l">طموح</div></div>
+          <div class="mini-stat"><div class="n">1000</div><div class="l">شاب مستهدف</div></div>
+          <div class="mini-stat"><div class="n">6</div><div class="l">لجان</div></div>
+          <div class="mini-stat"><div class="n">4</div><div class="l">أنشطة</div></div>
         </div>
         <div class="divider"></div>
-        <div style="font-size:.9rem;opacity:.8;line-height:1.6">
-          Entrepreneurship &amp; Startup Economy<br>
-          <span style="color:var(--gold-l);font-weight:700">ولاية سطيف</span>
+        <div class="tagline">From Idea To Impact 🚀</div>
+        <div style="margin-top:1rem;font-size:.82rem;opacity:.7;line-height:1.6">
+          Entrepreneurial &amp; Startup Economy<br>
+          نادي المقاولتية واقتصاد المؤسسات الناشئة
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ PATHS ═══ -->
-<section class="paths" id="paths">
+<!-- ═══ VISION & MISSION ═══ -->
+<section class="vision" id="vision">
   <div class="container">
     <div class="section-title reveal">
-      <span class="label">البرنامج السنوي</span>
-      <h2>المسارات التكوينية الثلاثة</h2>
-      <p>رحلة تكوينية متكاملة على مدار السنة لتطوير مهاراتك القيادية</p>
+      <span class="label">الرؤية والرسالة</span>
+      <h2>ما الذي نسعى إليه؟</h2>
     </div>
-    <div class="paths-grid">
-      <div class="path-card reveal">
-        <div class="path-num">01</div>
-        <span class="path-period">جانفي – أفريل</span>
-        <h3>اكتشاف الذات وبناء الأساس القيادي</h3>
+    <div class="vm-grid reveal">
+      <div class="vm-card">
+        <div class="vm-icon">🔭</div>
+        <h3>رؤيتنا</h3>
+        <p>بناء جيل من الشباب لا ينتظر الفرص… بل يصنعها.</p>
+        <p>نسعى إلى ترسيخ ثقافة المبادرة والابتكار، وربط التخصصات الدراسية بالمشاريع المستقبلية بدل عقلية البحث عن الوظيفة فقط.</p>
+      </div>
+      <div class="vm-card">
+        <div class="vm-icon">🎯</div>
+        <h3>رسالتنا</h3>
+        <p>مرافقة الشباب والتلاميذ والطلبة في تطوير طريقة تفكيرهم تجاه العمل، من خلال:</p>
         <ul>
-          <li>تكوين نواة شبابية</li>
-          <li>اكتشاف الذات والقدرات</li>
-          <li>تنفيذ مشاريع ومهام أولية</li>
-          <li>بناء الأساس القيادي</li>
+          <li>نشر ثقافة ريادة الأعمال</li>
+          <li>تقديم ورشات ودورات تكوينية</li>
+          <li>تنظيم لقاءات وبودكاستات شبابية</li>
+          <li>تأطير التلاميذ في اختيار تخصصاتهم الجامعية</li>
+          <li>خلق بيئة شبابية محفزة على الابتكار</li>
         </ul>
       </div>
-      <div class="path-card reveal">
-        <div class="path-num">02</div>
-        <span class="path-period">ماي – أوت</span>
-        <h3>تطوير المهارات القيادية</h3>
-        <ul>
-          <li>تطوير المهارات القيادية المتقدمة</li>
-          <li>تنفيذ مشروع مجتمعي</li>
-          <li>تقييم التطور الشخصي</li>
-          <li>العمل ضمن فرق منظمة</li>
-        </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GOALS ═══ -->
+<section class="goals" id="goals">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="label">أهدافنا</span>
+      <h2>ماذا نريد أن نحقق؟</h2>
+    </div>
+    <div class="goals-main reveal">
+      <h3>الهدف الرئيسي</h3>
+      <div class="big-goal">تكوين وتأطير 1000 شاب وشابة<br>بعقلية المقاول والمبادر</div>
+    </div>
+    <div class="goals-grid">
+      <div class="goal-item reveal">
+        <div class="g-icon">📢</div>
+        <p>نشر ثقافة ريادة الأعمال وسط الشباب</p>
       </div>
-      <div class="path-card reveal">
-        <div class="path-num">03</div>
-        <span class="path-period">سبتمبر – ديسمبر</span>
-        <h3>التفكير الاستراتيجي والأثر الواسع</h3>
-        <ul>
-          <li>التفكير الاستراتيجي المتقدم</li>
-          <li>تجسيد مشاريع ذات أثر واسع</li>
-          <li>عروض أمام لجنة التقييم</li>
-          <li>التتويج والشهادات</li>
-        </ul>
+      <div class="goal-item reveal">
+        <div class="g-icon">🔄</div>
+        <p>تغيير عقلية «البحث عن وظيفة» إلى «صناعة الفرص»</p>
+      </div>
+      <div class="goal-item reveal">
+        <div class="g-icon">🛠️</div>
+        <p>تنظيم ورشات ولقاءات تكوينية دورية</p>
+      </div>
+      <div class="goal-item reveal">
+        <div class="g-icon">🚌</div>
+        <p>إنشاء مدرسة متنقلة للوصول لمختلف المؤسسات التعليمية</p>
+      </div>
+      <div class="goal-item reveal">
+        <div class="g-icon">💡</div>
+        <p>مرافقة الشباب في بناء أفكارهم ومشاريعهم المستقبلية</p>
+      </div>
+      <div class="goal-item reveal">
+        <div class="g-icon">🌐</div>
+        <p>خلق شبكة شبابية من القادة والمبادرين</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ACTIVITIES ═══ -->
+<section class="activities" id="activities">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="label">برنامجنا الميداني</span>
+      <h2>أنشطتنا ومبادراتنا</h2>
+      <p>أربع ركائز ميدانية تُجسّد رؤيتنا على أرض الواقع</p>
+    </div>
+    <div class="act-grid">
+      <div class="act-card reveal">
+        <div class="act-num">01</div>
+        <h3>الورشات التكوينية</h3>
+        <p>ورشات تفاعلية وتطبيقية تهدف إلى تغيير طريقة التفكير وبناء مهارات ريادة الأعمال.</p>
+        <div class="act-tags">
+          <span class="act-tag">ريادة الأعمال</span>
+          <span class="act-tag">تطوير الأفكار</span>
+          <span class="act-tag">القيادة</span>
+          <span class="act-tag">عقلية المقاول</span>
+        </div>
+      </div>
+      <div class="act-card reveal">
+        <div class="act-num">02</div>
+        <h3>البودكاست الشبابي</h3>
+        <p>مساحة حوارية شبابية تستضيف مختلف التجارب والأفكار الملهمة في مجال ريادة الأعمال والابتكار.</p>
+        <div class="act-tags">
+          <span class="act-tag">حوارات</span>
+          <span class="act-tag">تجارب ناجحة</span>
+          <span class="act-tag">إلهام شبابي</span>
+        </div>
+      </div>
+      <div class="act-card reveal">
+        <div class="act-num">03</div>
+        <h3>المدرسة المتنقلة — École Mobile</h3>
+        <p>مبادرة ميدانية تنتقل بين المتوسطات، الثانويات، الجامعات والمعاهد لنشر ثقافة ريادة الأعمال.</p>
+        <div class="act-tags">
+          <span class="act-tag">متوسطات</span>
+          <span class="act-tag">ثانويات</span>
+          <span class="act-tag">جامعات</span>
+          <span class="act-tag">معاهد</span>
+        </div>
+      </div>
+      <div class="act-card reveal">
+        <div class="act-num">04</div>
+        <h3>برنامج التوجيه الجامعي</h3>
+        <p>برنامج خاص بتلاميذ البكالوريا لمساعدتهم على اختيار تخصصاتهم الجامعية وفق مشاريعهم وطموحاتهم.</p>
+        <div class="act-tags">
+          <span class="act-tag">بكالوريا</span>
+          <span class="act-tag">اختيار التخصص</span>
+          <span class="act-tag">مشاريع المستقبل</span>
+        </div>
       </div>
     </div>
   </div>
@@ -370,87 +447,60 @@
 <section class="committees" id="committees">
   <div class="container">
     <div class="section-title reveal">
-      <span class="label">هيكل النادي</span>
-      <h2>اللجان المتخصصة</h2>
-      <p>أربع لجان تعمل بشكل متكامل لضمان نجاح كل نشاط في NEXORA DZ</p>
+      <span class="label">الهيكلة التنظيمية</span>
+      <h2>اللجان الستة للنادي</h2>
+      <p>ست لجان متخصصة تعمل بشكل متكامل لضمان نجاح كل نشاط في ESE</p>
     </div>
     <div class="comm-grid">
       <div class="comm-card reveal">
         <div class="comm-icon">🧩</div>
-        <h3>لجنة التنسيق</h3>
-        <span class="comm-role">العقل التنظيمي للنادي</span>
-        <p>الجهة المسؤولة عن ضمان الانسجام والتكامل بين مختلف لجان النادي وتوحيد الرؤية.</p>
-        <div class="comm-tasks">
-          <span>إعداد خطة أسبوعية موحدة</span>
-          <span>متابعة عمل كل لجنة</span>
-          <span>تنظيم اجتماعات دورية</span>
-          <span>حل الإشكاليات بين اللجان</span>
-        </div>
+        <h3>لجنة التنسيق بين اللجان</h3>
+        <p>تسهر على ضمان الانسجام والتنظيم العام بين مختلف اللجان لضمان سير العمل بفعالية.</p>
       </div>
       <div class="comm-card reveal">
         <div class="comm-icon">🚀</div>
         <h3>لجنة التكوين وريادة الأعمال</h3>
-        <span class="comm-role">تغيير العقليات — Mindset Shift</span>
-        <p>تأطير وتكوين الأعضاء في مجال ريادة الأعمال وتطوير عقلية المبادرة والابتكار.</p>
-        <div class="comm-tasks">
-          <span>تقديم ورشات تدريبية</span>
-          <span>شرح مفاهيم Startup</span>
-          <span>تحديات جماعية إبداعية</span>
-          <span>إعداد محتوى التكوين</span>
-        </div>
+        <p>تتكفل بإعداد وتقديم المحتوى التكويني والورشات التدريبية لتغيير عقليات الشباب.</p>
       </div>
       <div class="comm-card reveal">
         <div class="comm-icon">⚡</div>
         <h3>لجنة التأطير والتطبيق</h3>
-        <span class="comm-role">تحويل التكوين إلى تجربة</span>
-        <p>تحويل المعارف المكتسبة إلى تطبيقات عملية ومرافقة المشاركين في تطوير أفكارهم.</p>
-        <div class="comm-tasks">
-          <span>تنظيم Mini Challenges</span>
-          <span>مرافقة المشاركين</span>
-          <span>تنظيم Pitch Sessions</span>
-          <span>متابعة التطور الشخصي</span>
-        </div>
+        <p>تعمل على مرافقة المشاركين وتحويل التكوين إلى تطبيقات وأنشطة عملية ملموسة.</p>
       </div>
       <div class="comm-card reveal">
         <div class="comm-icon">📣</div>
         <h3>لجنة الإعلام والاتصال والترويج</h3>
-        <span class="comm-role">صوت NEXORA DZ</span>
-        <p>إدارة الاتصال الداخلي والخارجي للنادي والترويج للأنشطة وتغطية الفعاليات.</p>
-        <div class="comm-tasks">
-          <span>إدارة شبكات التواصل</span>
-          <span>تغطية الفعاليات</span>
-          <span>إنتاج المحتوى الإعلامي</span>
-          <span>التصميم والهوية البصرية</span>
-        </div>
+        <p>مسؤولة عن التغطية الإعلامية وإدارة منصات التواصل الاجتماعي وترويج أنشطة النادي.</p>
+      </div>
+      <div class="comm-card reveal">
+        <div class="comm-icon">🤝</div>
+        <h3>لجنة الشراكات والعلاقات الخارجية</h3>
+        <p>تهدف إلى بناء علاقات وشراكات مع مختلف المؤسسات، الجمعيات، والفاعلين المحليين.</p>
+      </div>
+      <div class="comm-card reveal">
+        <div class="comm-icon">📋</div>
+        <h3>لجنة التنظيم والإدارة والتوجيه</h3>
+        <p>تتكفل بتنظيم الأنشطة والجوانب الإدارية واللوجستية لضمان سير كل فعالية بنجاح.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ WHO ═══ -->
-<section class="who" id="who">
+<!-- ═══ VALUES ═══ -->
+<section class="values">
   <div class="container">
     <div class="section-title reveal">
-      <span class="label">شروط الانضمام</span>
-      <h2>من يمكنه التسجيل؟</h2>
-      <p>البرنامج مفتوح لكل شاب جزائري يحمل طموحاً وشغفاً بالتغيير</p>
+      <span class="label">قيمنا</span>
+      <h2>ما الذي يجمعنا؟</h2>
+      <p>ستة قيم أساسية تُشكّل هوية ESE وتوجّه كل عمل نقوم به</p>
     </div>
-    <div class="who-grid">
-      <div class="who-card reveal">
-        <div class="icon">🎓</div>
-        <h3>الفئة العمرية</h3>
-        <p>من 18 إلى 35 سنة<br>تلاميذ، طلبة، وخريجون</p>
-      </div>
-      <div class="who-card reveal">
-        <div class="icon">📍</div>
-        <h3>الموقع الجغرافي</h3>
-        <p>مفتوح لجميع منتسبي ولاية سطيف والولايات المجاورة</p>
-      </div>
-      <div class="who-card reveal">
-        <div class="icon">💡</div>
-        <h3>المتطلبات</h3>
-        <p>الشغف بريادة الأعمال، الاستعداد للتعلم، والالتزام بنشاطات النادي</p>
-      </div>
+    <div class="values-grid reveal">
+      <div class="value-chip"><div class="v-icon">🎯</div><span>الالتزام</span></div>
+      <div class="value-chip"><div class="v-icon">🤝</div><span>العمل الجماعي</span></div>
+      <div class="value-chip"><div class="v-icon">💡</div><span>روح المبادرة</span></div>
+      <div class="value-chip"><div class="v-icon">👑</div><span>القيادة</span></div>
+      <div class="value-chip"><div class="v-icon">🎨</div><span>الإبداع</span></div>
+      <div class="value-chip"><div class="v-icon">🌟</div><span>صناعة الأثر</span></div>
     </div>
   </div>
 </section>
@@ -458,54 +508,81 @@
 <!-- ═══ CTA ═══ -->
 <section class="cta-section">
   <div class="cta-box reveal">
-    <h2>هل أنت مستعد لتكون جزءاً من NEXORA DZ؟</h2>
-    <p>
-      انضم إلى مجموعة من الشباب الطموح وابدأ رحلتك في عالم ريادة الأعمال.<br>
-      التسجيل مجاني والأماكن محدودة!
+    <h2>انضم إلى ESE اليوم!</h2>
+    <p>كن جزءاً من جيل الشباب الذي يصنع الفرق.<br>سجّل الآن وابدأ رحلتك نحو عالم ريادة الأعمال والمقاولتية.</p>
+    <p class="cta-slogan">«نحو شباب لا ينتظر… بل يصنع» 🚀</p>
+    <a href="register.html" class="btn-cta">سجّل الآن مجاناً ←</a>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="label">تواصل معنا</span>
+      <h2>نحن هنا من أجلك</h2>
+    </div>
+    <div class="contact-grid reveal">
+      <a href="https://www.facebook.com/profile.php?id=61589169546650" target="_blank" class="contact-card">
+        <div class="c-icon">📘</div>
+        <h4>Facebook</h4>
+        <span>ESE – DZ Young Leaders</span>
+      </a>
+      <a href="https://www.instagram.com/dz.nexora?igsh=MTQ0a21keXFwcGU3bw==" target="_blank" class="contact-card">
+        <div class="c-icon">📷</div>
+        <h4>Instagram</h4>
+        <span>@dz.nexora</span>
+      </a>
+      <a href="https://wa.me/213662958332" target="_blank" class="contact-card">
+        <div class="c-icon">💬</div>
+        <h4>WhatsApp</h4>
+        <span>+213 662 95 83 32</span>
+      </a>
+    </div>
+    <p style="text-align:center;margin-top:1.5rem;color:var(--muted);font-size:.9rem">
+      📧 ese.setif@gmail.com &nbsp;·&nbsp; 📍 ولاية سطيف، الجزائر
     </p>
-    <div class="cta-deadline">⏳ سارع بالتسجيل — الأماكن محدودة</div>
-    <br>
-    <a href="register.html" class="btn-cta">سجّل الآن مجاناً 🚀</a>
   </div>
 </section>
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
-  <strong>NEXORA DZ</strong> — نادي DZ Young Leaders · ولاية سطيف<br>
-  برنامج تابع لوزارة الشباب الجزائرية<br><br>
-  <a href="register.html">صفحة التسجيل</a> · <a href="#about">البرنامج</a> · <a href="#committees">اللجان</a>
-  <br><br>
-  جميع الحقوق محفوظة © 2026 NEXORA DZ
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">ESE — Entrepreneurial &amp; Startup Economy</div>
+      <div class="footer-sub">
+        DZ Young Leaders · سطيف 2026<br>
+        دفعة المجاهد الرئيس الراحل اليمين زروال<br>
+        برنامج تابع لوزارة الشباب الجزائرية
+      </div>
+    </div>
+    <div class="footer-socials">
+      <a href="https://www.facebook.com/profile.php?id=61589169546650" target="_blank" class="footer-social" title="Facebook">f</a>
+      <a href="https://www.instagram.com/dz.nexora?igsh=MTQ0a21keXFwcGU3bw==" target="_blank" class="footer-social" title="Instagram">📷</a>
+      <a href="https://wa.me/213662958332" target="_blank" class="footer-social" title="WhatsApp">💬</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 ESE — Entrepreneurial &amp; Startup Economy. جميع الحقوق محفوظة.</span>
+    <a href="register.html">صفحة التسجيل</a>
+  </div>
 </footer>
 
 <script>
-  // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Mobile menu toggle
   function toggleMenu() {
-    const links = document.querySelector('.nav-links');
-    if (links.style.display === 'flex') {
-      links.style.display = 'none';
-    } else {
-      links.style.display = 'flex';
-      links.style.flexDirection = 'column';
-      links.style.position = 'absolute';
-      links.style.top = '60px';
-      links.style.right = '0';
-      links.style.left = '0';
-      links.style.background = 'rgba(15,61,34,.97)';
-      links.style.padding = '1rem 2rem';
-      links.style.gap = '1rem';
-    }
+    document.getElementById('nav-mobile').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('nav-mobile').classList.remove('open');
   }
 
-  // Nav shrink on scroll
   window.addEventListener('scroll', () => {
-    document.querySelector('nav').style.padding = window.scrollY > 50 ? '.5rem 2rem' : '.75rem 2rem';
+    document.getElementById('navbar').style.padding = window.scrollY > 60 ? '.5rem 2rem' : '.75rem 2rem';
   });
 </script>
 </body>
